@@ -11,6 +11,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         typeSpecimen: resolve(__dirname, "type-specimen.html"),
+        colorSpecimen: resolve(__dirname, "color-specimen.html"),
       },
     },
   },

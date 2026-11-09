@@ -29,6 +29,15 @@
   --lds-color-focus-ring: #1a1814;
   --lds-color-positive: #2f6b4f;
   --lds-color-negative: #9c2f2f;
+  --lds-color-warning: #8b6914;
+  --lds-color-info: #3d5a80;
+
+  --lds-color-chart-1: #b54020;
+  --lds-color-chart-2: #3d5a80;
+  --lds-color-chart-3: #5c6b52;
+  --lds-color-chart-4: #8b6914;
+  --lds-color-chart-5: #6b4f5c;
+  --lds-color-chart-6: #2f6b4f;
 
   --lds-shadow-sm: none;
   --lds-shadow-md: 0 1px 0 #1a181414;
@@ -53,6 +62,14 @@
   --lds-color-focus-ring: #f3efe8;
   --lds-color-positive: #6bb896;
   --lds-color-negative: #e07a7a;
+  --lds-color-warning: #d4b04a;
+  --lds-color-info: #7aa3cc;
+  --lds-color-chart-1: #e86b45;
+  --lds-color-chart-2: #7aa3cc;
+  --lds-color-chart-3: #8fa888;
+  --lds-color-chart-4: #d4b04a;
+  --lds-color-chart-5: #b8929e;
+  --lds-color-chart-6: #6bb896;
   --lds-shadow-sm: none;
   --lds-shadow-md: 0 0 0 1px #f3efe814;
   --lds-shadow-lg: 0 12px 40px #00000066;

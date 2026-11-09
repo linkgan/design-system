@@ -2,14 +2,23 @@
 @import "./directions/folio.css";
 @import "./directions/grove.css";
 @import "./directions/ledger.css";
+@import "./directions/ink-blue.css";
+@import "./directions/navy.css";
+@import "./directions/terracotta.css";
+@import "./directions/plum.css";
+@import "./directions/ochre.css";
+@import "./directions/forest.css";
+@import "./directions/cobalt.css";
+@import "./directions/graphite.css";
 @import "./type-pairings.css";
+@import "./semantic-aliases.css";
 
-/* Default direction until JS or host app sets data-lds-direction */
+/* Defaults until host sets data-lds-* */
 :root {
   --lds-direction-name: "folio";
-  --lds-font-family-display: "Literata", Georgia, serif;
-  --lds-font-family-sans: "Source Sans 3", system-ui, sans-serif;
-  --lds-font-family-mono: "Source Code Pro", ui-monospace, monospace;
+  --lds-font-family-display: "Newsreader", Georgia, serif;
+  --lds-font-family-sans: "Inter", system-ui, sans-serif;
+  --lds-font-family-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 [data-lds-direction] {

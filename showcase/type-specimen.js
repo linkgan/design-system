@@ -31,7 +31,7 @@ function renderCard(pairing, index) {
 
 function renderApp() {
   const { direction, scheme } = readThemeFromQuery();
-  applyTheme({ direction, scheme, type: "literata-editorial" });
+  applyTheme({ direction, scheme, type: "newsreader-modern" });
 
   const app = document.getElementById("app");
   app.innerHTML = `

@@ -14,7 +14,7 @@ Three minimalist themes—switch with one attribute:
 
 Set `data-lds-scheme="light" | "dark"` on `<html>` (or `:root`).
 
-Light mode uses a **pure white** canvas (`#ffffff`); cards/surfaces use very subtle neutrals. Typography is independent: `data-lds-type` (see `tokens/type-pairings.css`).
+Light mode uses a **pure white** canvas (`#ffffff`); cards/surfaces use very subtle neutrals. Default typography: **`data-lds-type="newsreader-modern"`**. Color directions: see `showcase/color-specimen.html` (11 options).
 
 | `data-lds-type` | Display / body / mono |
 |-----------------|------------------------|

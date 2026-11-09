@@ -1,0 +1,70 @@
+/** Forest — deep green accent distinct from Grove’s softer moss. */
+
+[data-lds-direction="forest"] {
+  color-scheme: light;
+  --lds-radius-sm: 4px;
+  --lds-radius-md: 6px;
+  --lds-radius-lg: 9px;
+  --lds-radius-full: 9999px;
+  --lds-border-width: 1px;
+
+  --lds-color-bg-canvas: #ffffff;
+  --lds-color-bg-surface: #f8faf9;
+  --lds-color-bg-elevated: #ffffff;
+  --lds-color-bg-muted: #edf2ef;
+  --lds-color-text-primary: #141c18;
+  --lds-color-text-secondary: #35433c;
+  --lds-color-text-muted: #5c6b62;
+  --lds-color-border-default: #c5d0ca;
+  --lds-color-border-strong: #141c18;
+  --lds-color-accent: #2e6649;
+  --lds-color-accent-hover: #245238;
+  --lds-color-accent-subtle: #e0ede6;
+  --lds-color-on-accent: #ffffff;
+  --lds-color-focus-ring: #2e6649;
+  --lds-color-positive: #2e6649;
+  --lds-color-negative: #b53838;
+  --lds-color-warning: #8b6914;
+  --lds-color-info: #3d5a78;
+
+  --lds-color-chart-1: #2e6649;
+  --lds-color-chart-2: #3d5a78;
+  --lds-color-chart-3: #5a7a52;
+  --lds-color-chart-4: #8b6914;
+  --lds-color-chart-5: #5c6b82;
+  --lds-color-chart-6: #4a8b78;
+
+  --lds-shadow-sm: 0 1px 2px #141c1810;
+  --lds-shadow-md: 0 3px 12px #141c1814;
+  --lds-shadow-lg: 0 12px 36px #141c1818;
+}
+
+[data-lds-direction="forest"][data-lds-scheme="dark"] {
+  color-scheme: dark;
+  --lds-color-bg-canvas: #0a100d;
+  --lds-color-bg-surface: #121a16;
+  --lds-color-bg-elevated: #1a241e;
+  --lds-color-bg-muted: #243028;
+  --lds-color-text-primary: #e6ede9;
+  --lds-color-text-secondary: #a8b8ae;
+  --lds-color-text-muted: #7a8a80;
+  --lds-color-border-default: #344038;
+  --lds-color-border-strong: #e6ede9;
+  --lds-color-accent: #5cb888;
+  --lds-color-accent-hover: #78d0a0;
+  --lds-color-accent-subtle: #1a3024;
+  --lds-color-on-accent: #0a100d;
+  --lds-color-focus-ring: #78d0a0;
+  --lds-color-positive: #5cb888;
+  --lds-color-negative: #e87878;
+  --lds-color-warning: #d4b04a;
+  --lds-color-info: #8aa8c4;
+  --lds-color-chart-1: #5cb888;
+  --lds-color-chart-2: #8aa8c4;
+  --lds-color-chart-3: #88b070;
+  --lds-color-chart-4: #d4b04a;
+  --lds-color-chart-5: #a0a8b8;
+  --lds-color-chart-6: #5ecfa8;
+  --lds-shadow-md: 0 4px 16px #00000055;
+  --lds-shadow-lg: 0 16px 48px #00000070;
+}

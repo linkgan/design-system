@@ -46,7 +46,8 @@ function renderControls(direction, scheme, type) {
             <option value="dark" ${scheme === "dark" ? "selected" : ""}>Dark</option>
           </select>
         </label>
-        <a class="lds-btn lds-btn--ghost" href="./type-specimen.html">Type specimen</a>
+        <a class="lds-btn lds-btn--ghost" href="./type-specimen.html">Type</a>
+        <a class="lds-btn lds-btn--ghost" href="./color-specimen.html">Colors</a>
         <span class="lds-pill" id="active-pill">${direction} · ${type} · ${scheme}</span>
       </div>
     </div>
@@ -150,7 +151,8 @@ function renderApp() {
         <nav aria-label="Primary">
           <ul class="lds-nav">
             <li><a class="lds-link lds-link--active" href="#">Showcase</a></li>
-            <li><a class="lds-link" href="./type-specimen.html">Type specimen</a></li>
+            <li><a class="lds-link" href="./type-specimen.html">Type</a></li>
+            <li><a class="lds-link" href="./color-specimen.html">Colors</a></li>
             <li><a class="lds-link" href="https://github.com/linkgan/design-system">GitHub</a></li>
           </ul>
         </nav>

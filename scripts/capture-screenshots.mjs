@@ -9,18 +9,19 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 const outDir = "/opt/cursor/artifacts/design-system";
 
-const TYPE_IDS = [
-  "literata-editorial",
-  "fraunces-grove",
-  "plex-ledger",
-  "inter-minimal",
-  "outfit-geometric",
-  "work-humanist",
-  "newsreader-modern",
-  "dm-sans",
+const DIRECTIONS = [
+  "folio",
+  "grove",
+  "ledger",
+  "ink-blue",
+  "navy",
+  "terracotta",
+  "plum",
+  "ochre",
+  "forest",
+  "cobalt",
+  "graphite",
 ];
-
-const DIRECTIONS = ["folio", "grove", "ledger"];
 
 function previewServer() {
   return new Promise((resolve, reject) => {
@@ -52,25 +53,25 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
 
 for (const direction of DIRECTIONS) {
-  const url = `http://127.0.0.1:4173/?direction=${direction}&scheme=light&type=literata-editorial`;
+  const url = `http://127.0.0.1:4173/?direction=${direction}&scheme=light&type=newsreader-modern`;
   await page.goto(url, { waitUntil: "networkidle" });
-  await page.waitForTimeout(400);
-  const file = join(outDir, `direction-${direction}-light-white.png`);
+  await page.waitForTimeout(350);
+  const file = join(outDir, `direction-${direction}-light-newsreader.png`);
   await page.screenshot({ path: file, fullPage: true });
   console.log("wrote", file);
 }
 
-await page.goto(
-  "http://127.0.0.1:4173/type-specimen.html?direction=folio&scheme=light",
-  { waitUntil: "networkidle" }
-);
-await page.waitForTimeout(600);
+await page.goto("http://127.0.0.1:4173/color-specimen.html", { waitUntil: "networkidle" });
+await page.waitForTimeout(500);
+const overview = join(outDir, "color-directions-overview-newsreader-light.png");
+await page.screenshot({ path: overview, fullPage: true });
+console.log("wrote", overview);
 
-for (const typeId of TYPE_IDS) {
-  const card = page.locator(`[data-lds-type-preview="${typeId}"]`);
+for (const direction of DIRECTIONS) {
+  const card = page.locator(`[data-lds-direction-preview="${direction}"]`);
   await card.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(200);
-  const file = join(outDir, `type-specimen-${typeId}-white.png`);
+  await page.waitForTimeout(150);
+  const file = join(outDir, `color-card-${direction}-newsreader-light.png`);
   await card.screenshot({ path: file });
   console.log("wrote", file);
 }

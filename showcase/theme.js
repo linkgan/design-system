@@ -1,8 +1,11 @@
-export const DIRECTIONS = [
-  { id: "folio", label: "Folio", note: "Vermillion ink accent" },
-  { id: "grove", label: "Grove", note: "Moss green accent" },
-  { id: "ledger", label: "Ledger", note: "Teal finance accent" },
-];
+import { COLOR_DIRECTIONS } from "./color-blocks.js";
+
+export const DIRECTIONS = COLOR_DIRECTIONS.map((d) => ({
+  id: d.id,
+  label: d.label,
+  note: d.blurb,
+  accent: d.accent,
+}));
 
 export const TYPE_PAIRINGS = [
   {
@@ -71,6 +74,8 @@ export const TYPE_PAIRINGS = [
   },
 ];
 
+export const DEFAULT_TYPE = "newsreader-modern";
+
 export const FONT_STYLESHEET =
   "https://fonts.googleapis.com/css2?" +
   [
@@ -106,7 +111,7 @@ export function readThemeFromQuery() {
   return {
     direction: q.get("direction") || el.dataset.ldsDirection || "folio",
     scheme: q.get("scheme") || el.dataset.ldsScheme || "light",
-    type: q.get("type") || el.dataset.ldsType || "literata-editorial",
+    type: q.get("type") || el.dataset.ldsType || DEFAULT_TYPE,
   };
 }
 
