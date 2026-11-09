@@ -1,0 +1,62 @@
+/**
+ * Grove — warm stone & moss. Soft radii, gentle elevation.
+ * Fraunces + Nunito Sans.
+ */
+
+[data-lds-direction="grove"] {
+  color-scheme: light;
+  --lds-font-family-display: "Fraunces", "Georgia", serif;
+  --lds-font-family-sans: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --lds-font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --lds-radius-sm: 6px;
+  --lds-radius-md: 10px;
+  --lds-radius-lg: 16px;
+  --lds-radius-full: 9999px;
+
+  --lds-border-width: 1px;
+
+  --lds-color-bg-canvas: #e8e4dc;
+  --lds-color-bg-surface: #f5f2ec;
+  --lds-color-bg-elevated: #ffffff;
+  --lds-color-bg-muted: #ddd7cc;
+  --lds-color-text-primary: #2a2926;
+  --lds-color-text-secondary: #4a4843;
+  --lds-color-text-muted: #78756d;
+  --lds-color-border-default: #c8c2b6;
+  --lds-color-border-strong: #5c6b52;
+  --lds-color-accent: #4d7356;
+  --lds-color-accent-hover: #3d5c44;
+  --lds-color-accent-subtle: #dde8df;
+  --lds-color-on-accent: #f5f2ec;
+  --lds-color-focus-ring: #4d7356;
+  --lds-color-positive: #3d7356;
+  --lds-color-negative: #b04a4a;
+
+  --lds-shadow-sm: 0 1px 2px #2a292612;
+  --lds-shadow-md: 0 4px 16px #2a292618;
+  --lds-shadow-lg: 0 16px 48px #2a292622;
+}
+
+[data-lds-direction="grove"][data-lds-scheme="dark"] {
+  color-scheme: dark;
+  --lds-color-bg-canvas: #141612;
+  --lds-color-bg-surface: #1c1f1a;
+  --lds-color-bg-elevated: #252921;
+  --lds-color-bg-muted: #2f342b;
+  --lds-color-text-primary: #ece9e2;
+  --lds-color-text-secondary: #c5c0b6;
+  --lds-color-text-muted: #949086;
+  --lds-color-border-default: #3d4338;
+  --lds-color-border-strong: #8fa888;
+  --lds-color-accent: #7fb38a;
+  --lds-color-accent-hover: #9ac8a4;
+  --lds-color-accent-subtle: #243028;
+  --lds-color-on-accent: #141612;
+  --lds-color-focus-ring: #9ac8a4;
+  --lds-color-positive: #7fb38a;
+  --lds-color-negative: #d88a8a;
+  --lds-shadow-sm: 0 1px 0 #00000040;
+  --lds-shadow-md: 0 8px 24px #00000055;
+  --lds-shadow-lg: 0 20px 56px #00000070;
+}

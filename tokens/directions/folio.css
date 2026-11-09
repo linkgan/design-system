@@ -1,0 +1,62 @@
+/**
+ * Folio — editorial ink & warm paper.
+ * Literata + Source Sans 3. Hairline rules, almost-no shadow.
+ */
+
+[data-lds-direction="folio"] {
+  color-scheme: light;
+  --lds-font-family-display: "Literata", "Iowan Old Style", "Palatino Linotype", serif;
+  --lds-font-family-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --lds-font-family-mono: "Source Code Pro", ui-monospace, monospace;
+
+  --lds-radius-sm: 2px;
+  --lds-radius-md: 4px;
+  --lds-radius-lg: 6px;
+  --lds-radius-full: 9999px;
+
+  --lds-border-width: 1px;
+
+  --lds-color-bg-canvas: #f6f2ea;
+  --lds-color-bg-surface: #fffdf8;
+  --lds-color-bg-elevated: #ffffff;
+  --lds-color-bg-muted: #ede6da;
+  --lds-color-text-primary: #1a1814;
+  --lds-color-text-secondary: #3d3830;
+  --lds-color-text-muted: #6b6358;
+  --lds-color-border-default: #d4ccc0;
+  --lds-color-border-strong: #1a1814;
+  --lds-color-accent: #b54020;
+  --lds-color-accent-hover: #8f3318;
+  --lds-color-accent-subtle: #f3e4df;
+  --lds-color-on-accent: #fffdf8;
+  --lds-color-focus-ring: #1a1814;
+  --lds-color-positive: #2f6b4f;
+  --lds-color-negative: #9c2f2f;
+
+  --lds-shadow-sm: none;
+  --lds-shadow-md: 0 1px 0 #1a181414;
+  --lds-shadow-lg: 0 8px 24px #1a181412;
+}
+
+[data-lds-direction="folio"][data-lds-scheme="dark"] {
+  color-scheme: dark;
+  --lds-color-bg-canvas: #121110;
+  --lds-color-bg-surface: #1a1917;
+  --lds-color-bg-elevated: #242220;
+  --lds-color-bg-muted: #2e2b28;
+  --lds-color-text-primary: #f3efe8;
+  --lds-color-text-secondary: #c9c2b8;
+  --lds-color-text-muted: #9a9288;
+  --lds-color-border-default: #3d3934;
+  --lds-color-border-strong: #f3efe8;
+  --lds-color-accent: #e86b45;
+  --lds-color-accent-hover: #f58967;
+  --lds-color-accent-subtle: #3a221c;
+  --lds-color-on-accent: #121110;
+  --lds-color-focus-ring: #f3efe8;
+  --lds-color-positive: #6bb896;
+  --lds-color-negative: #e07a7a;
+  --lds-shadow-sm: none;
+  --lds-shadow-md: 0 0 0 1px #f3efe814;
+  --lds-shadow-lg: 0 12px 40px #00000066;
+}

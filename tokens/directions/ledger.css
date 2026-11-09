@@ -1,0 +1,62 @@
+/**
+ * Ledger — cool slate & teal for dense finance UI.
+ * IBM Plex Sans + IBM Plex Mono. Tight rhythm, crisp edges.
+ */
+
+[data-lds-direction="ledger"] {
+  color-scheme: light;
+  --lds-font-family-display: "IBM Plex Sans", system-ui, sans-serif;
+  --lds-font-family-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --lds-font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --lds-radius-sm: 3px;
+  --lds-radius-md: 5px;
+  --lds-radius-lg: 8px;
+  --lds-radius-full: 9999px;
+
+  --lds-border-width: 1px;
+
+  --lds-color-bg-canvas: #e9edf2;
+  --lds-color-bg-surface: #f4f6f9;
+  --lds-color-bg-elevated: #ffffff;
+  --lds-color-bg-muted: #dce2ea;
+  --lds-color-text-primary: #141c26;
+  --lds-color-text-secondary: #3a4654;
+  --lds-color-text-muted: #667286;
+  --lds-color-border-default: #c5ced8;
+  --lds-color-border-strong: #141c26;
+  --lds-color-accent: #0d7c84;
+  --lds-color-accent-hover: #0a646a;
+  --lds-color-accent-subtle: #d9f0f2;
+  --lds-color-on-accent: #f4f6f9;
+  --lds-color-focus-ring: #0d7c84;
+  --lds-color-positive: #0f7a4c;
+  --lds-color-negative: #c23b3b;
+
+  --lds-shadow-sm: 0 1px 2px #141c2610;
+  --lds-shadow-md: 0 2px 8px #141c2618;
+  --lds-shadow-lg: 0 12px 32px #141c2624;
+}
+
+[data-lds-direction="ledger"][data-lds-scheme="dark"] {
+  color-scheme: dark;
+  --lds-color-bg-canvas: #0b0f14;
+  --lds-color-bg-surface: #121820;
+  --lds-color-bg-elevated: #1a222c;
+  --lds-color-bg-muted: #232d3a;
+  --lds-color-text-primary: #e8edf4;
+  --lds-color-text-secondary: #b0bac8;
+  --lds-color-text-muted: #7d8a9c;
+  --lds-color-border-default: #2e3a4a;
+  --lds-color-border-strong: #5ecfd6;
+  --lds-color-accent: #4ec5cc;
+  --lds-color-accent-hover: #72d5da;
+  --lds-color-accent-subtle: #143338;
+  --lds-color-on-accent: #0b0f14;
+  --lds-color-focus-ring: #72d5da;
+  --lds-color-positive: #4ecf8a;
+  --lds-color-negative: #f07070;
+  --lds-shadow-sm: 0 0 0 1px #e8edf410;
+  --lds-shadow-md: 0 4px 16px #00000050;
+  --lds-shadow-lg: 0 16px 40px #00000070;
+}

@@ -1,0 +1,17 @@
+@import "./foundation.css";
+@import "./directions/folio.css";
+@import "./directions/grove.css";
+@import "./directions/ledger.css";
+
+/* Default direction until JS or host app sets data-lds-direction */
+:root {
+  --lds-direction-name: "folio";
+}
+
+[data-lds-direction] {
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-md);
+  line-height: var(--lds-leading-normal);
+  color: var(--lds-color-text-primary);
+  background-color: var(--lds-color-bg-canvas);
+}
