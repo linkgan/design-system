@@ -111,12 +111,13 @@
 }
 
 .lds-link:hover {
-  color: var(--lds-color-text-primary);
+  color: var(--lds-color-accent);
 }
 
 .lds-link:focus-visible {
   outline: 2px solid var(--lds-color-focus-ring);
   outline-offset: 2px;
+  border-radius: var(--lds-radius-sm);
 }
 
 .lds-link--active {
@@ -230,7 +231,7 @@
 .lds-input:focus-visible {
   outline: none;
   border-color: var(--lds-color-accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lds-color-accent) 25%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lds-color-focus-ring) 28%, transparent);
 }
 
 /* Card */

@@ -8,7 +8,12 @@ export const COLOR_DIRECTIONS = [
   { id: "plum", label: "Plum", accent: "#6e4a78", blurb: "Muted aubergine—earned, not gradient purple." },
   { id: "ochre", label: "Ochre", accent: "#7a6512", blurb: "Mustard gold for quiet confidence." },
   { id: "forest", label: "Forest", accent: "#2e6649", blurb: "Deep forest green, sharper than Grove." },
-  { id: "cobalt", label: "Cobalt", accent: "#1f5eff", blurb: "Confident electric blue on crisp neutrals." },
+  {
+    id: "cobalt",
+    label: "Cobalt",
+    accent: "#1f5eff",
+    blurb: "House default — electric blue on crisp neutrals.",
+  },
   { id: "graphite", label: "Graphite", accent: "#3d4652", blurb: "Steel-gray monochrome with minimal chrome." },
 ];
 

@@ -1,6 +1,6 @@
 {
   "name": "@linkgan/design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Minimal shared design language — tokens, components, Tailwind preset",
   "license": "MIT",
   "repository": {

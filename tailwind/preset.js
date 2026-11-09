@@ -1,8 +1,25 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * Tailwind preset for @linkgan/design-system
+ *
+ * House default (no HTML data attributes): cobalt color + newsreader-modern type
+ * on a #ffffff canvas. Import tokens/index.css before utilities.
+ *
+ * @type {import('tailwindcss').Config}
+ */
 module.exports = {
   theme: {
     extend: {
       colors: {
+        warning: "var(--lds-color-warning)",
+        info: "var(--lds-color-info)",
+        chart: {
+          1: "var(--lds-color-chart-1)",
+          2: "var(--lds-color-chart-2)",
+          3: "var(--lds-color-chart-3)",
+          4: "var(--lds-color-chart-4)",
+          5: "var(--lds-color-chart-5)",
+          6: "var(--lds-color-chart-6)",
+        },
         canvas: "var(--lds-color-bg-canvas)",
         surface: "var(--lds-color-bg-surface)",
         elevated: "var(--lds-color-bg-elevated)",

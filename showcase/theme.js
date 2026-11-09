@@ -74,6 +74,7 @@ export const TYPE_PAIRINGS = [
   },
 ];
 
+export const DEFAULT_DIRECTION = "cobalt";
 export const DEFAULT_TYPE = "newsreader-modern";
 
 export const FONT_STYLESHEET =
@@ -100,16 +101,24 @@ export const FONT_STYLESHEET =
 
 export function applyTheme({ direction, scheme, type }) {
   const el = document.documentElement;
-  if (direction) el.dataset.ldsDirection = direction;
-  if (scheme) el.dataset.ldsScheme = scheme;
-  if (type) el.dataset.ldsType = type;
+  const dir = direction ?? DEFAULT_DIRECTION;
+  const pairing = type ?? DEFAULT_TYPE;
+
+  if (dir === DEFAULT_DIRECTION) delete el.dataset.ldsDirection;
+  else el.dataset.ldsDirection = dir;
+
+  if (pairing === DEFAULT_TYPE) delete el.dataset.ldsType;
+  else el.dataset.ldsType = pairing;
+
+  if (scheme === "light") delete el.dataset.ldsScheme;
+  else if (scheme === "dark") el.dataset.ldsScheme = "dark";
 }
 
 export function readThemeFromQuery() {
   const q = new URLSearchParams(location.search);
   const el = document.documentElement;
   return {
-    direction: q.get("direction") || el.dataset.ldsDirection || "folio",
+    direction: q.get("direction") || el.dataset.ldsDirection || DEFAULT_DIRECTION,
     scheme: q.get("scheme") || el.dataset.ldsScheme || "light",
     type: q.get("type") || el.dataset.ldsType || DEFAULT_TYPE,
   };

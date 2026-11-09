@@ -1,6 +1,7 @@
 import {
   DIRECTIONS,
   TYPE_PAIRINGS,
+  DEFAULT_TYPE,
   FONT_STYLESHEET,
   applyTheme,
   readThemeFromQuery,
@@ -176,11 +177,6 @@ function renderApp() {
   document.getElementById("direction").addEventListener("change", bind);
   document.getElementById("scheme").addEventListener("change", bind);
   document.getElementById("type").addEventListener("change", bind);
-}
-
-const mq = window.matchMedia("(prefers-color-scheme: dark)");
-if (!location.search.includes("scheme=")) {
-  document.documentElement.dataset.ldsScheme = mq.matches ? "dark" : "light";
 }
 
 renderApp();

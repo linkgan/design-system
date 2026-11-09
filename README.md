@@ -1,97 +1,91 @@
 # @linkgan/design-system
 
-Shared visual language for personal projects ([home-website](https://github.com/linkgan/home-website), [finances-webapp](https://github.com/linkgan/finances-webapp)). CSS-token-first, framework-agnostic components, optional Tailwind preset.
+Shared visual language for [home-website](https://github.com/linkgan/home-website) and [finances-webapp](https://github.com/linkgan/finances-webapp). CSS tokens, `lds-*` components, optional Tailwind preset.
 
-## Directions
+## House default (no setup attributes)
 
-Three minimalist themes—switch with one attribute:
+| Layer | Value |
+|-------|--------|
+| **Color** | `cobalt` — accent `#1f5eff` on `#ffffff` |
+| **Type** | `newsreader-modern` — Newsreader + Inter + JetBrains Mono |
+| **Scheme** | Light by default; dark via `data-lds-scheme="dark"` or `prefers-color-scheme` |
 
-| `data-lds-direction` | Feel | Fonts (OFL / open) |
-|----------------------|------|---------------------|
-| `folio` | Editorial ink & warm paper, hairline rules | Literata + Source Sans 3 |
-| `grove` | Stone & moss, soft elevation | Fraunces + Nunito Sans |
-| `ledger` | Cool slate & teal, dense tables | IBM Plex Sans + Mono |
+Details: [docs/HOUSE-DEFAULT.md](./docs/HOUSE-DEFAULT.md).
 
-Set `data-lds-scheme="light" | "dark"` on `<html>` (or `:root`).
-
-Light mode uses a **pure white** canvas (`#ffffff`); cards/surfaces use very subtle neutrals. Default typography: **`data-lds-type="newsreader-modern"`**. Color directions: see `showcase/color-specimen.html` (11 options).
-
-| `data-lds-type` | Display / body / mono |
-|-----------------|------------------------|
-| `literata-editorial` | Literata · Source Sans 3 · Source Code Pro |
-| `fraunces-grove` | Fraunces · Nunito Sans · IBM Plex Mono |
-| `plex-ledger` | IBM Plex Sans · IBM Plex Sans · IBM Plex Mono |
-| `inter-minimal` | Inter · Inter · JetBrains Mono |
-| `outfit-geometric` | Outfit · Outfit · Roboto Mono |
-| `work-humanist` | Work Sans · Work Sans · Inconsolata |
-| `newsreader-modern` | Newsreader · Inter · JetBrains Mono |
-| `dm-sans` | DM Sans · DM Sans · DM Mono |
-
-## Install in a consumer repo
+### Install
 
 ```bash
 npm install github:linkgan/design-system
 ```
 
+**Fonts** (Google Fonts or self-host): Newsreader, Inter, JetBrains Mono.
+
 ```css
+/* app layout or global.css */
 @import "@linkgan/design-system/tokens.css";
 @import "@linkgan/design-system/components.css";
 ```
 
 ```html
-<html data-lds-direction="ledger" data-lds-type="plex-ledger" data-lds-scheme="light">
+<html lang="en">
+  <body class="lds-page">…</body>
+</html>
 ```
 
-### Tailwind
+No `data-lds-*` required for the house look. Use `lds-btn`, `lds-card`, `lds-table`, etc. from `components.css`.
+
+### Tailwind (Next.js, finances-webapp, etc.)
 
 ```js
 // tailwind.config.js
 module.exports = {
   presets: [require("@linkgan/design-system/tailwind-preset")],
-  content: ["./src/**/*.{js,ts,jsx,tsx,html}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
 };
 ```
 
-Load direction fonts in the host app (Google Fonts or self-hosted). Showcase lists the full stack.
+Import `tokens.css` once in your global stylesheet **before** Tailwind layers. Semantic colors map to `accent`, `positive`, `negative`, `chart-1`…`chart-6`, etc.
 
-### React / Next.js
+### Dark mode
 
-Wrap the app shell with the `data-lds-*` attributes and use `lds-*` classes or map them in your component library. Do not duplicate hex values in CSS modules.
+```html
+<html lang="en" data-lds-scheme="dark">
+```
 
-## Showcase (local)
+Or omit the attribute and let tokens follow `prefers-color-scheme`. Lock light with `data-lds-scheme="light"`.
+
+### Alternates (comparison only)
+
+- **11 color directions** — `data-lds-direction` (`folio`, `grove`, `ledger`, `ink-blue`, `navy`, `terracotta`, `plum`, `ochre`, `forest`, `cobalt`, `graphite`). Omit attribute for cobalt.
+- **8 type pairings** — `data-lds-type`. Omit for `newsreader-modern`.
+
+Browse: `showcase/color-specimen.html`, `showcase/type-specimen.html`.
+
+### Rules for consumer repos
+
+1. **No ad-hoc hex, font, or spacing** in feature code — use tokens or Tailwind preset keys.
+2. **One primary filled action** per view.
+3. Tabular numbers for money (`lds-mono`, `font-mono`).
+4. Run `npm run audit:contrast` after token edits in this repo before publishing.
+5. Bump the git dependency tag/version here; then `npm update` in consumers.
+
+Agents: follow [skills/linkgan-design-language/SKILL.md](./skills/linkgan-design-language/SKILL.md).
+
+## Showcase
 
 ```bash
 cd showcase && npm install && npm run dev
 ```
 
-Open the URL Vite prints (default `http://localhost:5173`). Use the direction/type/scheme selects—or query params `?direction=folio&type=inter-minimal&scheme=light`.
-
-**Type specimen comparison:** `showcase/type-specimen.html` (all pairings side by side on white).
-
-Static build (deployable):
+Query params: `?direction=folio&type=inter-minimal&scheme=dark` (defaults: cobalt + newsreader + light).
 
 ```bash
-npm run showcase:build
-# output: showcase/dist/
+npm run showcase:build   # static output in showcase/dist/
 ```
 
 ## Agent skills
 
-This repo keeps an allowlist in [`.skills.yaml`](./.skills.yaml). Sync from the owner's library:
-
-```bash
-chmod +x scripts/sync-skills.sh
-./scripts/sync-skills.sh --list
-./scripts/sync-skills.sh
-```
-
-When `linkgan/agent-skills` is unavailable, bootstrap once from public upstreams:
-
-```bash
-./scripts/bootstrap-skills-from-upstream.sh
-```
-
-House skill for agents: [`skills/linkgan-design-language/SKILL.md`](./skills/linkgan-design-language/SKILL.md).
+[`.skills.yaml`](./.skills.yaml) + `./scripts/sync-skills.sh` (see [docs/SKILLS.md](./docs/SKILLS.md)).
 
 ## Quality
 
@@ -99,14 +93,7 @@ House skill for agents: [`skills/linkgan-design-language/SKILL.md`](./skills/lin
 npm run audit:contrast
 ```
 
-Re-run after editing files in `tokens/directions/`.
-
 ## Docs
 
 - [Design principles](./docs/principles.md)
-
-## Updating consumers
-
-1. Change tokens/components here and bump `package.json` version.
-2. Publish or tag on GitHub.
-3. In consumer repos: `npm update @linkgan/design-system` and re-run visual QA in both light and dark.
+- [House default](./docs/HOUSE-DEFAULT.md)

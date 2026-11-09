@@ -8,23 +8,32 @@
 @import "./directions/plum.css";
 @import "./directions/ochre.css";
 @import "./directions/forest.css";
-@import "./directions/cobalt.css";
 @import "./directions/graphite.css";
 @import "./type-pairings.css";
+@import "./directions/cobalt.css";
 @import "./semantic-aliases.css";
 
-/* Defaults until host sets data-lds-* */
+/**
+ * House default (no data attributes required):
+ * - Color: cobalt (accent #1f5eff light)
+ * - Type: newsreader-modern
+ * - Scheme: light; dark via data-lds-scheme="dark" or prefers-color-scheme
+ */
 :root {
-  --lds-direction-name: "folio";
-  --lds-font-family-display: "Newsreader", Georgia, serif;
-  --lds-font-family-sans: "Inter", system-ui, sans-serif;
-  --lds-font-family-mono: "JetBrains Mono", ui-monospace, monospace;
+  --lds-direction-name: "cobalt";
 }
 
-[data-lds-direction] {
+:root {
   font-family: var(--lds-font-family-sans);
   font-size: var(--lds-text-md);
   line-height: var(--lds-leading-normal);
+  color: var(--lds-color-text-primary);
+  background-color: var(--lds-color-bg-canvas);
+}
+
+/* Non-default directions override :root when explicitly set */
+[data-lds-direction]:not([data-lds-direction="cobalt"]) {
+  font-family: var(--lds-font-family-sans);
   color: var(--lds-color-text-primary);
   background-color: var(--lds-color-bg-canvas);
 }

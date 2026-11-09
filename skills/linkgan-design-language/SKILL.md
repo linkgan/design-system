@@ -1,60 +1,68 @@
 ---
 name: linkgan-design-language
-description: Use Linkgan's shared design system (@linkgan/design-system) for every UI task in consumer repos. Never introduce ad-hoc colors, fonts, spacing, or radii.
+description: Use @linkgan/design-system for linkgan UI. House default cobalt + newsreader-modern on white; no ad-hoc colors or fonts.
 ---
 
 # Linkgan design language
 
-You are building UI for **linkgan** personal projects (`home-website`, `finances-webapp`, and future apps). Visual consistency comes from this repo's tokens and components—not from improvised styles.
+You build UI for **home-website**, **finances-webapp**, and other linkgan projects using **@linkgan/design-system** only.
 
-## Before you write UI code
+## House default (use unless the user picks an alternate)
 
-1. Install or link `@linkgan/design-system` (see root README).
-2. Import `tokens/index.css` and `components/components.css` (or wire the Tailwind preset and map utilities to semantic tokens).
-3. Set theme on a root element:
-   - `data-lds-direction="folio" | "grove" | "ledger"` (accent + radius character)
-   - `data-lds-type="<pairing-id>"` (default **`newsreader-modern`** — Newsreader / Inter / JetBrains Mono)
-   - `data-lds-scheme="light" | "dark"` (light mode canvas is `#ffffff`)
-4. Read `docs/principles.md` once per project.
+| | |
+|--|--|
+| **Color** | Cobalt — accent `#1f5eff` (light), white `#fff` canvas |
+| **Type** | `newsreader-modern` — Newsreader display, Inter body, JetBrains Mono for figures |
+| **Scheme** | Light default; dark with `data-lds-scheme="dark"` or OS preference |
+
+**Do not set** `data-lds-direction` or `data-lds-type` when shipping the standard look—they are optional overrides.
+
+## Consumer setup
+
+```bash
+npm install github:linkgan/design-system
+```
+
+```css
+@import "@linkgan/design-system/tokens.css";
+@import "@linkgan/design-system/components.css";
+```
+
+Load fonts: Newsreader, Inter, JetBrains Mono.
+
+**Tailwind projects:**
+
+```js
+presets: [require("@linkgan/design-system/tailwind-preset")],
+```
+
+Import `tokens.css` in global CSS before `@tailwind` directives.
 
 ## Hard rules
 
-- **No raw hex/rgb in components** — use `--lds-*` semantic tokens or Tailwind theme keys from the preset.
-- **No new font families** without adding them to the token layer for all directions.
-- **No spacing outside the scale** — use `--lds-space-*` or preset spacing keys.
-- **One primary filled action per view** (no-ai-design-slop / design principles).
-- Run `npm run audit:contrast` after token changes; fix failures before shipping.
+- No raw hex/rgb/hsl in components — only `--lds-*` or preset theme keys.
+- No font stacks outside the active `data-lds-type` (default: newsreader-modern).
+- Spacing: `--lds-space-*` scale only.
+- One filled primary action per screen.
+- Finance: positive/negative via `--lds-color-positive` / `--lds-color-negative`; amounts in mono tabular figures.
+- Charts: `--lds-color-chart-1` … `--lds-color-chart-6`.
+- After editing tokens here, run `npm run audit:contrast`.
 
-## Components
+## Components (prefer these classes)
 
-Use `lds-*` classes from `components/components.css`:
+`lds-page`, `lds-container`, `lds-header`, `lds-section`, `lds-display`, `lds-h1`–`lds-h3`, `lds-body`, `lds-btn` (+ variants), `lds-link`, `lds-field`, `lds-input`, `lds-card`, `lds-stat`, `lds-table`.
 
-- Layout: `lds-page`, `lds-container`, `lds-header`, `lds-section`
-- Actions: `lds-btn`, `lds-btn--primary|secondary|ghost`, `lds-link`
-- Forms: `lds-field`, `lds-label`, `lds-input`
-- Content: `lds-card`, `lds-stat`, `lds-table`, typography primitives (`lds-display`, `lds-h1`–`lds-h3`, `lds-body`, `lds-caption`, `lds-mono`)
+## Alternates (explicit opt-in only)
 
-Extend patterns by composing these classes or wrapping them in framework components that **only** forward token-based styles.
+- Color: `data-lds-direction` — see `docs/HOUSE-DEFAULT.md` and `showcase/color-specimen.html` (11 options; cobalt is default).
+- Type: `data-lds-type` — see `type-specimen.html` (8 options).
 
-## Directions (do not blend)
+Never mix directions or invent a one-off palette.
 
-| ID | Character | Typical use |
-|----|-----------|-------------|
-| `folio` | Editorial ink & paper, serif display | Personal site, writing-forward pages |
-| `grove` | Warm stone & moss, soft depth | Lifestyle, calm dashboards |
-| `ledger` | Cool slate & teal, tabular density | Finance tables, metrics |
+## Review before merge
 
-Pick **one** direction per product unless the showcase explicitly compares them.
+Run mentally: `better-accessibility`, `better-colors`, `audit-ai-design-slop`, `critique-visual-hierarchy` — focus visible, contrast, no template slop.
 
-## Review checklist
+## Source of truth
 
-Apply `design-critique`, `critique-visual-hierarchy`, `better-accessibility`, and `audit-ai-design-slop` before merge:
-
-- Hierarchy readable without color alone
-- Focus visible on all interactive elements
-- Tables use `lds-mono` / tabular nums for amounts
-- Motion ≤ 220ms; honor `prefers-reduced-motion`
-
-## Updating the system
-
-Token or component changes happen **in this repo first**, then consumers bump the package version. Never fork tokens into consumer repos.
+Change tokens/components **in the design-system repo**; consumers update the package. Do not copy token files into home-website or finances-webapp.
