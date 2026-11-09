@@ -12,8 +12,9 @@ You are building UI for **linkgan** personal projects (`home-website`, `finances
 1. Install or link `@linkgan/design-system` (see root README).
 2. Import `tokens/index.css` and `components/components.css` (or wire the Tailwind preset and map utilities to semantic tokens).
 3. Set theme on a root element:
-   - `data-lds-direction="folio" | "grove" | "ledger"` (pick the project's chosen direction)
-   - `data-lds-scheme="light" | "dark"` (respect OS preference when appropriate)
+   - `data-lds-direction="folio" | "grove" | "ledger"` (accent + radius character)
+   - `data-lds-type="<pairing-id>"` (typography — orthogonal to direction; see `tokens/type-pairings.css`)
+   - `data-lds-scheme="light" | "dark"` (light mode canvas is `#ffffff`)
 4. Read `docs/principles.md` once per project.
 
 ## Hard rules

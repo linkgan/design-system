@@ -5,9 +5,6 @@
 
 [data-lds-direction="folio"] {
   color-scheme: light;
-  --lds-font-family-display: "Literata", "Iowan Old Style", "Palatino Linotype", serif;
-  --lds-font-family-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --lds-font-family-mono: "Source Code Pro", ui-monospace, monospace;
 
   --lds-radius-sm: 2px;
   --lds-radius-md: 4px;
@@ -16,10 +13,10 @@
 
   --lds-border-width: 1px;
 
-  --lds-color-bg-canvas: #f6f2ea;
-  --lds-color-bg-surface: #fffdf8;
+  --lds-color-bg-canvas: #ffffff;
+  --lds-color-bg-surface: #faf9f8;
   --lds-color-bg-elevated: #ffffff;
-  --lds-color-bg-muted: #ede6da;
+  --lds-color-bg-muted: #f3f1ef;
   --lds-color-text-primary: #1a1814;
   --lds-color-text-secondary: #3d3830;
   --lds-color-text-muted: #6b6358;
@@ -28,7 +25,7 @@
   --lds-color-accent: #b54020;
   --lds-color-accent-hover: #8f3318;
   --lds-color-accent-subtle: #f3e4df;
-  --lds-color-on-accent: #fffdf8;
+  --lds-color-on-accent: #ffffff;
   --lds-color-focus-ring: #1a1814;
   --lds-color-positive: #2f6b4f;
   --lds-color-negative: #9c2f2f;

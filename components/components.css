@@ -430,3 +430,73 @@
   background: var(--lds-color-accent-subtle);
   color: var(--lds-color-accent);
 }
+
+/* Type specimen comparison */
+.lds-type-specimen-page {
+  background: var(--lds-color-bg-canvas);
+  padding-bottom: var(--lds-space-16);
+}
+
+.lds-type-specimen-grid {
+  display: grid;
+  gap: var(--lds-space-8);
+  margin-top: var(--lds-space-6);
+}
+
+@media (min-width: 64rem) {
+  .lds-type-specimen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lds-type-specimen-card {
+  background: #ffffff;
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  border-radius: var(--lds-radius-lg);
+  padding: var(--lds-space-6);
+  box-shadow: var(--lds-shadow-sm);
+}
+
+.lds-type-specimen-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lds-space-2) var(--lds-space-4);
+  align-items: baseline;
+  margin-bottom: var(--lds-space-5);
+  padding-bottom: var(--lds-space-4);
+  border-bottom: var(--lds-border-width) solid var(--lds-color-border-default);
+}
+
+.lds-type-specimen-card__title {
+  margin: 0;
+  font-size: var(--lds-text-lg);
+  font-weight: var(--lds-weight-semibold);
+}
+
+.lds-type-specimen-card__fonts {
+  margin: 0;
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+  font-family: var(--lds-font-family-mono);
+}
+
+.lds-type-specimen__sample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-space-4);
+}
+
+.lds-type-specimen__mini-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lds-space-3);
+  padding-bottom: var(--lds-space-3);
+  border-bottom: var(--lds-border-width) solid var(--lds-color-border-default);
+}
+
+.lds-type-specimen__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lds-space-3);
+}

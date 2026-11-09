@@ -8,14 +8,19 @@ import { chromium } from "playwright";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 const outDir = "/opt/cursor/artifacts/design-system";
-const combos = [
-  ["folio", "light"],
-  ["folio", "dark"],
-  ["grove", "light"],
-  ["grove", "dark"],
-  ["ledger", "light"],
-  ["ledger", "dark"],
+
+const TYPE_IDS = [
+  "literata-editorial",
+  "fraunces-grove",
+  "plex-ledger",
+  "inter-minimal",
+  "outfit-geometric",
+  "work-humanist",
+  "newsreader-modern",
+  "dm-sans",
 ];
+
+const DIRECTIONS = ["folio", "grove", "ledger"];
 
 function previewServer() {
   return new Promise((resolve, reject) => {
@@ -46,12 +51,27 @@ await mkdir(outDir, { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
 
-for (const [direction, scheme] of combos) {
-  const url = `http://127.0.0.1:4173/?direction=${direction}&scheme=${scheme}`;
+for (const direction of DIRECTIONS) {
+  const url = `http://127.0.0.1:4173/?direction=${direction}&scheme=light&type=literata-editorial`;
   await page.goto(url, { waitUntil: "networkidle" });
-  await page.waitForTimeout(300);
-  const file = join(outDir, `${direction}-${scheme}.png`);
+  await page.waitForTimeout(400);
+  const file = join(outDir, `direction-${direction}-light-white.png`);
   await page.screenshot({ path: file, fullPage: true });
+  console.log("wrote", file);
+}
+
+await page.goto(
+  "http://127.0.0.1:4173/type-specimen.html?direction=folio&scheme=light",
+  { waitUntil: "networkidle" }
+);
+await page.waitForTimeout(600);
+
+for (const typeId of TYPE_IDS) {
+  const card = page.locator(`[data-lds-type-preview="${typeId}"]`);
+  await card.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(200);
+  const file = join(outDir, `type-specimen-${typeId}-white.png`);
+  await card.screenshot({ path: file });
   console.log("wrote", file);
 }
 

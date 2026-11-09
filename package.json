@@ -16,6 +16,7 @@
   ],
   "exports": {
     "./tokens.css": "./tokens/index.css",
+    "./type-pairings.css": "./tokens/type-pairings.css",
     "./components.css": "./components/components.css",
     "./tailwind-preset": "./tailwind/preset.js",
     "./principles": "./docs/principles.md"

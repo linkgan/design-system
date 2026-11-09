@@ -1,0 +1,52 @@
+/**
+ * Typography pairings — orthogonal to color direction (`data-lds-type`).
+ * Combine any pairing with any `data-lds-direction` + scheme.
+ */
+
+[data-lds-type="literata-editorial"] {
+  --lds-font-family-display: "Literata", "Iowan Old Style", Georgia, serif;
+  --lds-font-family-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --lds-font-family-mono: "Source Code Pro", ui-monospace, monospace;
+}
+
+[data-lds-type="fraunces-grove"] {
+  --lds-font-family-display: "Fraunces", Georgia, serif;
+  --lds-font-family-sans: "Nunito Sans", system-ui, sans-serif;
+  --lds-font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+[data-lds-type="plex-ledger"] {
+  --lds-font-family-display: "IBM Plex Sans", system-ui, sans-serif;
+  --lds-font-family-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --lds-font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+[data-lds-type="inter-minimal"] {
+  --lds-font-family-display: "Inter", system-ui, sans-serif;
+  --lds-font-family-sans: "Inter", system-ui, sans-serif;
+  --lds-font-family-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-lds-type="outfit-geometric"] {
+  --lds-font-family-display: "Outfit", system-ui, sans-serif;
+  --lds-font-family-sans: "Outfit", system-ui, sans-serif;
+  --lds-font-family-mono: "Roboto Mono", ui-monospace, monospace;
+}
+
+[data-lds-type="work-humanist"] {
+  --lds-font-family-display: "Work Sans", system-ui, sans-serif;
+  --lds-font-family-sans: "Work Sans", system-ui, sans-serif;
+  --lds-font-family-mono: "Inconsolata", ui-monospace, monospace;
+}
+
+[data-lds-type="newsreader-modern"] {
+  --lds-font-family-display: "Newsreader", Georgia, serif;
+  --lds-font-family-sans: "Inter", system-ui, sans-serif;
+  --lds-font-family-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-lds-type="dm-sans"] {
+  --lds-font-family-display: "DM Sans", system-ui, sans-serif;
+  --lds-font-family-sans: "DM Sans", system-ui, sans-serif;
+  --lds-font-family-mono: "DM Mono", ui-monospace, monospace;
+}

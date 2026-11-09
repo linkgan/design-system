@@ -5,9 +5,6 @@
 
 [data-lds-direction="grove"] {
   color-scheme: light;
-  --lds-font-family-display: "Fraunces", "Georgia", serif;
-  --lds-font-family-sans: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
-  --lds-font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --lds-radius-sm: 6px;
   --lds-radius-md: 10px;
@@ -16,10 +13,10 @@
 
   --lds-border-width: 1px;
 
-  --lds-color-bg-canvas: #e8e4dc;
-  --lds-color-bg-surface: #f5f2ec;
+  --lds-color-bg-canvas: #ffffff;
+  --lds-color-bg-surface: #f9faf9;
   --lds-color-bg-elevated: #ffffff;
-  --lds-color-bg-muted: #ddd7cc;
+  --lds-color-bg-muted: #f0f2f0;
   --lds-color-text-primary: #2a2926;
   --lds-color-text-secondary: #4a4843;
   --lds-color-text-muted: #78756d;
@@ -28,7 +25,7 @@
   --lds-color-accent: #4d7356;
   --lds-color-accent-hover: #3d5c44;
   --lds-color-accent-subtle: #dde8df;
-  --lds-color-on-accent: #f5f2ec;
+  --lds-color-on-accent: #ffffff;
   --lds-color-focus-ring: #4d7356;
   --lds-color-positive: #3d7356;
   --lds-color-negative: #b04a4a;

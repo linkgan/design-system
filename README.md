@@ -14,6 +14,19 @@ Three minimalist themes—switch with one attribute:
 
 Set `data-lds-scheme="light" | "dark"` on `<html>` (or `:root`).
 
+Light mode uses a **pure white** canvas (`#ffffff`); cards/surfaces use very subtle neutrals. Typography is independent: `data-lds-type` (see `tokens/type-pairings.css`).
+
+| `data-lds-type` | Display / body / mono |
+|-----------------|------------------------|
+| `literata-editorial` | Literata · Source Sans 3 · Source Code Pro |
+| `fraunces-grove` | Fraunces · Nunito Sans · IBM Plex Mono |
+| `plex-ledger` | IBM Plex Sans · IBM Plex Sans · IBM Plex Mono |
+| `inter-minimal` | Inter · Inter · JetBrains Mono |
+| `outfit-geometric` | Outfit · Outfit · Roboto Mono |
+| `work-humanist` | Work Sans · Work Sans · Inconsolata |
+| `newsreader-modern` | Newsreader · Inter · JetBrains Mono |
+| `dm-sans` | DM Sans · DM Sans · DM Mono |
+
 ## Install in a consumer repo
 
 ```bash
@@ -26,7 +39,7 @@ npm install github:linkgan/design-system
 ```
 
 ```html
-<html data-lds-direction="ledger" data-lds-scheme="light">
+<html data-lds-direction="ledger" data-lds-type="plex-ledger" data-lds-scheme="light">
 ```
 
 ### Tailwind
@@ -51,7 +64,9 @@ Wrap the app shell with the `data-lds-*` attributes and use `lds-*` classes or m
 cd showcase && npm install && npm run dev
 ```
 
-Open the URL Vite prints (default `http://localhost:5173`). Use the direction/scheme selects—or query params `?direction=folio&scheme=dark`.
+Open the URL Vite prints (default `http://localhost:5173`). Use the direction/type/scheme selects—or query params `?direction=folio&type=inter-minimal&scheme=light`.
+
+**Type specimen comparison:** `showcase/type-specimen.html` (all pairings side by side on white).
 
 Static build (deployable):
 

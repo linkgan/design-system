@@ -1,8 +1,13 @@
-const DIRECTIONS = [
-  { id: "folio", label: "Folio", note: "Editorial ink & paper" },
-  { id: "grove", label: "Grove", note: "Warm stone & moss" },
-  { id: "ledger", label: "Ledger", note: "Cool slate & teal" },
-];
+import {
+  DIRECTIONS,
+  TYPE_PAIRINGS,
+  FONT_STYLESHEET,
+  applyTheme,
+  readThemeFromQuery,
+  writeThemeToUrl,
+} from "./theme.js";
+
+document.getElementById("lds-fonts").href = FONT_STYLESHEET;
 
 const TRANSACTIONS = [
   { name: "Groceries", cat: "Food", amount: "-$84.20" },
@@ -11,20 +16,7 @@ const TRANSACTIONS = [
   { name: "Cloud host", cat: "Tools", amount: "-$29.00" },
 ];
 
-function setTheme(direction, scheme) {
-  document.documentElement.dataset.ldsDirection = direction;
-  document.documentElement.dataset.ldsScheme = scheme;
-}
-
-function readQuery() {
-  const q = new URLSearchParams(location.search);
-  return {
-    direction: q.get("direction") || document.documentElement.dataset.ldsDirection,
-    scheme: q.get("scheme") || document.documentElement.dataset.ldsScheme,
-  };
-}
-
-function renderControls(direction, scheme) {
+function renderControls(direction, scheme, type) {
   return `
     <div class="lds-container" style="padding-top: var(--lds-space-6)">
       <div class="lds-showcase-bar" role="region" aria-label="Theme controls">
@@ -39,13 +31,23 @@ function renderControls(direction, scheme) {
           </select>
         </label>
         <label>
+          <span class="lds-caption">Type pairing</span>
+          <select class="lds-select" id="type" aria-label="Font pairing">
+            ${TYPE_PAIRINGS.map(
+              (t) =>
+                `<option value="${t.id}" ${t.id === type ? "selected" : ""}>${t.label}</option>`
+            ).join("")}
+          </select>
+        </label>
+        <label>
           <span class="lds-caption">Scheme</span>
           <select class="lds-select" id="scheme" aria-label="Color scheme">
             <option value="light" ${scheme === "light" ? "selected" : ""}>Light</option>
             <option value="dark" ${scheme === "dark" ? "selected" : ""}>Dark</option>
           </select>
         </label>
-        <span class="lds-pill" id="active-pill">${direction} / ${scheme}</span>
+        <a class="lds-btn lds-btn--ghost" href="./type-specimen.html">Type specimen</a>
+        <span class="lds-pill" id="active-pill">${direction} · ${type} · ${scheme}</span>
       </div>
     </div>
   `;
@@ -137,8 +139,8 @@ function renderFinance() {
 }
 
 function renderApp() {
-  const { direction, scheme } = readQuery();
-  setTheme(direction, scheme);
+  const { direction, scheme, type } = readThemeFromQuery();
+  applyTheme({ direction, scheme, type });
 
   const app = document.getElementById("app");
   app.innerHTML = `
@@ -148,33 +150,30 @@ function renderApp() {
         <nav aria-label="Primary">
           <ul class="lds-nav">
             <li><a class="lds-link lds-link--active" href="#">Showcase</a></li>
+            <li><a class="lds-link" href="./type-specimen.html">Type specimen</a></li>
             <li><a class="lds-link" href="https://github.com/linkgan/design-system">GitHub</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    ${renderControls(direction, scheme)}
+    ${renderControls(direction, scheme, type)}
     <div class="lds-split lds-container" style="padding-bottom: var(--lds-space-16)">
       <div aria-label="Home site mock">${renderHome()}</div>
       <div aria-label="Finance dashboard mock">${renderFinance()}</div>
     </div>
   `;
 
-  document.getElementById("direction").addEventListener("change", (e) => {
-    updateURL(e.target.value, document.getElementById("scheme").value);
-  });
-  document.getElementById("scheme").addEventListener("change", (e) => {
-    updateURL(document.getElementById("direction").value, e.target.value);
-  });
-}
-
-function updateURL(direction, scheme) {
-  const url = new URL(location.href);
-  url.searchParams.set("direction", direction);
-  url.searchParams.set("scheme", scheme);
-  history.replaceState(null, "", url);
-  setTheme(direction, scheme);
-  document.getElementById("active-pill").textContent = `${direction} / ${scheme}`;
+  const bind = () => {
+    const d = document.getElementById("direction").value;
+    const s = document.getElementById("scheme").value;
+    const t = document.getElementById("type").value;
+    writeThemeToUrl(d, s, t);
+    applyTheme({ direction: d, scheme: s, type: t });
+    document.getElementById("active-pill").textContent = `${d} · ${t} · ${s}`;
+  };
+  document.getElementById("direction").addEventListener("change", bind);
+  document.getElementById("scheme").addEventListener("change", bind);
+  document.getElementById("type").addEventListener("change", bind);
 }
 
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
