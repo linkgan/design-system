@@ -1,0 +1,32 @@
+# Allowlist for scripts/sync-skills.sh — synced into ./skills/
+# Upstream catalog: https://github.com/linkgan/agent-skills (private)
+repository: https://github.com/linkgan/agent-skills.git
+branch: main
+
+skills:
+  # Owl-Listener / designer-skills (ux + ui + design-systems)
+  - design-principles
+  - design-token
+  - color-system
+  - typography-scale
+  - spacing-system
+  - layout-grid
+  - theming-system
+  - dark-mode-design
+  - motion-system
+  - component-spec
+  - design-critique
+  - critique-visual-hierarchy
+  # tastemaker
+  - tastemaker
+  # jakubkrehel
+  - better-typography
+  - better-colors
+  - better-layout
+  - better-interface
+  - better-accessibility
+  # emilkowalski
+  - emil-design-eng
+  # MengTo
+  - no-ai-design-slop
+  - audit-ai-design-slop

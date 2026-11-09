@@ -1,0 +1,39 @@
+@import "./foundation.css";
+@import "./directions/folio.css";
+@import "./directions/grove.css";
+@import "./directions/ledger.css";
+@import "./directions/ink-blue.css";
+@import "./directions/navy.css";
+@import "./directions/terracotta.css";
+@import "./directions/plum.css";
+@import "./directions/ochre.css";
+@import "./directions/forest.css";
+@import "./directions/graphite.css";
+@import "./type-pairings.css";
+@import "./directions/cobalt.css";
+@import "./semantic-aliases.css";
+
+/**
+ * House default (no data attributes required):
+ * - Color: cobalt (accent #1f5eff light)
+ * - Type: newsreader-modern
+ * - Scheme: light; dark via data-lds-scheme="dark" or prefers-color-scheme
+ */
+:root {
+  --lds-direction-name: "cobalt";
+}
+
+:root {
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-md);
+  line-height: var(--lds-leading-normal);
+  color: var(--lds-color-text-primary);
+  background-color: var(--lds-color-bg-canvas);
+}
+
+/* Non-default directions override :root when explicitly set */
+[data-lds-direction]:not([data-lds-direction="cobalt"]) {
+  font-family: var(--lds-font-family-sans);
+  color: var(--lds-color-text-primary);
+  background-color: var(--lds-color-bg-canvas);
+}

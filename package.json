@@ -1,0 +1,32 @@
+{
+  "name": "@linkgan/design-system",
+  "version": "0.2.0",
+  "description": "Minimal shared design language — tokens, components, Tailwind preset",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linkgan/design-system.git"
+  },
+  "files": [
+    "tokens",
+    "components",
+    "tailwind",
+    "docs",
+    "skills/linkgan-design-language"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens/index.css",
+    "./type-pairings.css": "./tokens/type-pairings.css",
+    "./components.css": "./components/components.css",
+    "./tailwind-preset": "./tailwind/preset.js",
+    "./principles": "./docs/principles.md"
+  },
+  "scripts": {
+    "sync-skills": "./scripts/sync-skills.sh",
+    "sync-skills:list": "./scripts/sync-skills.sh --list",
+    "audit:contrast": "node scripts/audit-contrast.mjs",
+    "showcase:dev": "npm run dev --prefix showcase",
+    "showcase:build": "npm run build --prefix showcase",
+    "showcase:preview": "npm run preview --prefix showcase"
+  }
+}

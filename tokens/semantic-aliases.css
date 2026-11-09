@@ -1,0 +1,5 @@
+/* Map finance + status roles to shared component APIs */
+[data-lds-direction] {
+  --lds-color-success: var(--lds-color-positive);
+  --lds-color-danger: var(--lds-color-negative);
+}

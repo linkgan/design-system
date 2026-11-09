@@ -1,0 +1,76 @@
+/**
+ * Folio — editorial ink & warm paper.
+ * Literata + Source Sans 3. Hairline rules, almost-no shadow.
+ */
+
+[data-lds-direction="folio"] {
+  color-scheme: light;
+
+  --lds-radius-sm: 2px;
+  --lds-radius-md: 4px;
+  --lds-radius-lg: 6px;
+  --lds-radius-full: 9999px;
+
+  --lds-border-width: 1px;
+
+  --lds-color-bg-canvas: #ffffff;
+  --lds-color-bg-surface: #faf9f8;
+  --lds-color-bg-elevated: #ffffff;
+  --lds-color-bg-muted: #f3f1ef;
+  --lds-color-text-primary: #1a1814;
+  --lds-color-text-secondary: #3d3830;
+  --lds-color-text-muted: #6b6358;
+  --lds-color-border-default: #d4ccc0;
+  --lds-color-border-strong: #1a1814;
+  --lds-color-accent: #b54020;
+  --lds-color-accent-hover: #8f3318;
+  --lds-color-accent-subtle: #f3e4df;
+  --lds-color-on-accent: #ffffff;
+  --lds-color-focus-ring: #1a1814;
+  --lds-color-positive: #2f6b4f;
+  --lds-color-negative: #9c2f2f;
+  --lds-color-warning: #8b6914;
+  --lds-color-info: #3d5a80;
+
+  --lds-color-chart-1: #b54020;
+  --lds-color-chart-2: #3d5a80;
+  --lds-color-chart-3: #5c6b52;
+  --lds-color-chart-4: #8b6914;
+  --lds-color-chart-5: #6b4f5c;
+  --lds-color-chart-6: #2f6b4f;
+
+  --lds-shadow-sm: none;
+  --lds-shadow-md: 0 1px 0 #1a181414;
+  --lds-shadow-lg: 0 8px 24px #1a181412;
+}
+
+[data-lds-direction="folio"][data-lds-scheme="dark"] {
+  color-scheme: dark;
+  --lds-color-bg-canvas: #121110;
+  --lds-color-bg-surface: #1a1917;
+  --lds-color-bg-elevated: #242220;
+  --lds-color-bg-muted: #2e2b28;
+  --lds-color-text-primary: #f3efe8;
+  --lds-color-text-secondary: #c9c2b8;
+  --lds-color-text-muted: #9a9288;
+  --lds-color-border-default: #3d3934;
+  --lds-color-border-strong: #f3efe8;
+  --lds-color-accent: #e86b45;
+  --lds-color-accent-hover: #f58967;
+  --lds-color-accent-subtle: #3a221c;
+  --lds-color-on-accent: #121110;
+  --lds-color-focus-ring: #f3efe8;
+  --lds-color-positive: #6bb896;
+  --lds-color-negative: #e07a7a;
+  --lds-color-warning: #d4b04a;
+  --lds-color-info: #7aa3cc;
+  --lds-color-chart-1: #e86b45;
+  --lds-color-chart-2: #7aa3cc;
+  --lds-color-chart-3: #8fa888;
+  --lds-color-chart-4: #d4b04a;
+  --lds-color-chart-5: #b8929e;
+  --lds-color-chart-6: #6bb896;
+  --lds-shadow-sm: none;
+  --lds-shadow-md: 0 0 0 1px #f3efe814;
+  --lds-shadow-lg: 0 12px 40px #00000066;
+}
