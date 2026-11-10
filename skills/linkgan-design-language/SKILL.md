@@ -29,9 +29,9 @@ npm install github:linkgan/design-system
 @import "@linkgan/design-system/expressive.css";
 ```
 
-Personal sites (**rsms.me–led**): `lds-site`, `lds-site-hero`, `lds-catalog`, `lds-link-plain`. Inter drives headings; use `.lds-serif` only for longform essays (Newsreader). Do not add grain, tag clouds, or decorative motion on index pages.
+Personal sites (**rsms.me–led**): `lds-site`, `lds-header--site`, `lds-site-hero`, `lds-site-lede`, `lds-site-index-line`, `lds-catalog`, `lds-link-plain`. Inter drives headings and wordmark; use `.lds-serif` only for longform essays (Newsreader). Do not add grain, tag clouds, or decorative motion on index pages.
 
-Load fonts: Newsreader, Inter, JetBrains Mono.
+Load fonts before tokens: see design-system `docs/FONTS.md` or `fonts/house-fonts.mjs` (Inter, Newsreader, JetBrains Mono).
 
 **Tailwind projects:**
 

@@ -15,12 +15,26 @@
 - Plain underlined links: `lds-link-plain`, `lds-catalog__link`
 - No grain, dot grid, or animated underlines on the default personal-site path
 
+## Site header (replaces home-website overlay)
+
+Inside `.lds-site`, use `lds-header lds-header--site`:
+
+- Canvas background (no tinted band, no blur)
+- Hairline bottom rule, short vertical padding
+- `.lds-nav__brand` — Inter semibold, tight tracking (`--lds-tracking-brand`)
+- Brand stacked above a one-line nav: `flex-wrap: nowrap` + horizontal scroll on narrow viewports
+
+## Fonts
+
+Load Inter, JetBrains Mono, and Newsreader before tokens — see **[FONTS.md](./FONTS.md)** (Google Fonts link or `fonts/house-fonts.mjs` export).
+
 ## Components
 
 | Class | Role |
 |-------|------|
-| `lds-site`, `lds-site-hero` | Index page shell + Inter display title |
-| `lds-catalog`, `lds-catalog__heading`, `lds-catalog__item` | Projects / writing lists |
+| `lds-site`, `lds-header--site` | Page shell + canvas-local header |
+| `lds-site-hero`, `lds-site-lede`, `lds-site-index-line` | Display title, secondary lede, mono index strip |
+| `lds-catalog`, `lds-catalog__heading`, `lds-catalog__item` | Projects / writing lists (tighter vertical rhythm) |
 | `lds-catalog__link` | Crisp title links |
 | `lds-serif` | Optional Newsreader essay block |
 | `lds-site-bio` | Closing bio line |

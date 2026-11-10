@@ -19,6 +19,7 @@
     "./type-pairings.css": "./tokens/type-pairings.css",
     "./components.css": "./components/components.css",
     "./expressive.css": "./components/expressive.css",
+    "./fonts/house-fonts": "./fonts/house-fonts.mjs",
     "./tailwind-preset": "./tailwind/preset.js",
     "./principles": "./docs/principles.md"
   },

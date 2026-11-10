@@ -57,7 +57,28 @@ function renderControls(direction, scheme, type) {
 function renderHome() {
   return `
     <div class="lds-site">
+      <header class="lds-header lds-header--site">
+        <div class="lds-header__inner">
+          <a class="lds-nav__brand" href="#">linkgan</a>
+          <nav aria-label="Site">
+            <ul class="lds-nav">
+              <li><a class="lds-link lds-link--active" href="#">Home</a></li>
+              <li><a class="lds-link" href="#">Projects</a></li>
+              <li><a class="lds-link" href="#">Writing</a></li>
+              <li><a class="lds-link" href="#">Lab notes</a></li>
+              <li><a class="lds-link" href="#">About</a></li>
+              <li><a class="lds-link" href="https://github.com/linkgan">GitHub</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <p class="lds-site-index-line" aria-hidden="true">01 · home / 2026-11 / cobalt · expressive-minimal</p>
+
       <h1 class="lds-site-hero">Hello, I'm linkgan</h1>
+      <p class="lds-site-lede">
+        Personal index in the design system—canvas header, tight catalog rhythm, mono index line. Longform can still use Newsreader when needed.
+      </p>
 
       <section class="lds-catalog" aria-labelledby="projects-heading">
         <h2 class="lds-catalog__heading" id="projects-heading">Projects</h2>
