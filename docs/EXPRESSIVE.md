@@ -1,23 +1,28 @@
 # Expressive minimal layer
 
-Optional import: `expressive.css` + tokens from `tokens/expressive.css` (included in `tokens.css`).
+**Primary reference: [rsms.me](https://rsms.me)** — typography-first, engineered personal index.
 
-House colors and type unchanged. Adds editorial rhythm, motion, and personal-site components.
+## Voice
+
+- **Site chrome:** Inter (display optical size, tight tracking, weight hierarchy)—Inter is Rasmus’s typeface; personal sites mirror his catalog layout.
+- **Longform (optional):** Newsreader via `.lds-serif` + house `newsreader-modern` tokens.
+- **Color:** Unchanged house cobalt on `#fff`.
+
+## Layout
+
+- Narrow column: `--lds-layout-site` (~40rem)
+- Sections: `lds-catalog` with `h2` → `h3` title link → description → mono date
+- Plain underlined links: `lds-link-plain`, `lds-catalog__link`
+- No grain, dot grid, or animated underlines on the default personal-site path
 
 ## Components
 
-| Class | Use |
-|-------|-----|
-| `lds-masthead`, `lds-display-xl`, `lds-display-emphasis` | Hero / masthead with Newsreader optical size + italic accent |
-| `lds-prose`, `lds-meta` | Measure + mono metadata labels |
-| `lds-section-rule` | Hairline section marker |
-| `lds-index`, `lds-index__link` | Project/writing rows with hover fill |
-| `lds-link-text` | Animated underline links |
-| `lds-tag` | Quiet topic chips |
-| `lds-aside`, `lds-footnote` | Editorial aside + footnote |
-| `lds-page--texture`, `lds-page--dotgrid` | Faint grain + dot grid (optional) |
-| `lds-reveal` | Short entrance (respects reduced motion) |
+| Class | Role |
+|-------|------|
+| `lds-site`, `lds-site-hero` | Index page shell + Inter display title |
+| `lds-catalog`, `lds-catalog__heading`, `lds-catalog__item` | Projects / writing lists |
+| `lds-catalog__link` | Crisp title links |
+| `lds-serif` | Optional Newsreader essay block |
+| `lds-site-bio` | Closing bio line |
 
-## References
-
-See PR #2 for what we took from rauno.me, paco.me, emilkowal.ski, rsms.me, craigmod.com, press.stripe.com, and are.na.
+Secondary influences (motion restraint, row hover disabled, etc.) remain from rauno, emil, paco, craigmod, Stripe Press, Are.na—applied only where they match rsms utilitarian tone.

@@ -1,7 +1,6 @@
 import {
   DIRECTIONS,
   TYPE_PAIRINGS,
-  DEFAULT_TYPE,
   FONT_STYLESHEET,
   applyTheme,
   readThemeFromQuery,
@@ -57,62 +56,73 @@ function renderControls(direction, scheme, type) {
 
 function renderHome() {
   return `
-    <header class="lds-masthead lds-reveal" aria-labelledby="hero-title">
-      <div class="lds-masthead__inner">
-        <p class="lds-meta" style="margin: 0 0 var(--lds-space-6)">Los Angeles · linkgan</p>
-        <h1 class="lds-display-xl" id="hero-title">
-          Notes from the <span class="lds-display-emphasis">workbench</span>
-        </h1>
-        <p class="lds-prose" style="margin: var(--lds-space-8) 0 var(--lds-space-6)">
-          Personal site energy: long-form thinking, chess, and the small systems that keep a life legible—without
-          the template glow.
-        </p>
-        <ul class="lds-tags" aria-label="Topics">
-          <li><a class="lds-tag" href="#">writing</a></li>
-          <li><a class="lds-tag" href="#">chess</a></li>
-          <li><a class="lds-tag" href="#">systems</a></li>
+    <div class="lds-site">
+      <h1 class="lds-site-hero">Hello, I'm linkgan</h1>
+
+      <section class="lds-catalog" aria-labelledby="projects-heading">
+        <h2 class="lds-catalog__heading" id="projects-heading">Projects</h2>
+        <ul class="lds-catalog__list">
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">design-system</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Shared tokens and components for personal sites and a finance dashboard—cobalt on white, engineered not decorative.
+            </p>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">pgn2data</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Turn chess games into tabulated datasets. Small tool, sharp edges.
+            </p>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">finances-webapp</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Personal ledger UI—dense tables, quiet chrome, numbers in mono.
+            </p>
+          </li>
         </ul>
-        <div class="lds-hero__actions" style="margin-top: var(--lds-space-8)">
-          <a class="lds-btn lds-btn--primary" href="#index">Index</a>
-          <a class="lds-btn lds-btn--secondary" href="#now">Now</a>
-        </div>
-      </div>
-    </header>
-  <aside class="lds-aside lds-container" id="now">
-      <span class="lds-aside__label">Now</span>
-      Building in public, guiltlessly following curiosity—a line borrowed from personal-site restraint, not hustle copy.
-    </aside>
-    <div class="lds-container">
-      <div class="lds-section-rule" role="separator"><span>Writing</span></div>
-      <ul class="lds-index" id="index">
-        <li class="lds-index__item">
-          <a class="lds-index__link" href="#">
-            <span class="lds-meta">Essay</span>
-            <span class="lds-index__title">Why I still keep a lab notebook</span>
-            <span class="lds-index__meta">6 min</span>
-            <span class="lds-index__desc">Paper fails search; digital fails presence. One honest paragraph per day.</span>
-          </a>
-        </li>
-        <li class="lds-index__item">
-          <a class="lds-index__link" href="#">
-            <span class="lds-meta">Log</span>
-            <span class="lds-index__title">Chess study index, autumn</span>
-            <span class="lds-index__meta">2026</span>
-            <span class="lds-index__desc">Openings I’m revisiting—not a rating grind post.</span>
-          </a>
-        </li>
-        <li class="lds-index__item">
-          <a class="lds-index__link" href="#">
-            <span class="lds-meta">Note</span>
-            <span class="lds-index__title">Analytics engineering with care</span>
-            <span class="lds-index__meta">draft</span>
-            <span class="lds-index__desc">Pipelines that stay legible six months later.</span>
-          </a>
-        </li>
-      </ul>
-      <p class="lds-body" style="margin-top: var(--lds-space-8); max-width: var(--lds-measure-narrow)">
-        More in the <a class="lds-link-text" href="#">archive</a>
-        <span class="lds-footnote"><a href="#" aria-label="Footnote 1">1</a></span> when it earns a click—not before.
+      </section>
+
+      <section class="lds-catalog" aria-labelledby="thoughts-heading">
+        <h2 class="lds-catalog__heading" id="thoughts-heading">Thoughts &amp; ideas</h2>
+        <ul class="lds-catalog__list">
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">Why keep a lab notebook</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Paper fails search; digital fails presence. One dated paragraph per day is the compromise.
+            </p>
+            <span class="lds-catalog__meta">Oct 2026</span>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">Analytics with legible pipelines</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Models you can re-read six months later without a diagram the size of a wall.
+            </p>
+            <span class="lds-catalog__meta">Sep 2026</span>
+          </li>
+        </ul>
+      </section>
+
+      <article class="lds-serif" style="margin-top: var(--lds-space-12)">
+        <span class="lds-serif__label">Longform · Newsreader</span>
+        Optional essay voice—serif body when a piece needs warmth; site chrome stays Inter-first like rsms.me.
+      </article>
+
+      <p class="lds-site-bio">
+        Los Angeles · analytics engineer. Software is the medium I work in.
+        <a class="lds-link-plain" href="#">Home</a>
+        ·
+        <a class="lds-link-plain" href="https://github.com/linkgan">GitHub</a>
       </p>
     </div>
   `;

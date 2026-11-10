@@ -24,7 +24,7 @@ npm install github:linkgan/design-system
 /* app layout or global.css */
 @import "@linkgan/design-system/tokens.css";
 @import "@linkgan/design-system/components.css";
-@import "@linkgan/design-system/expressive.css"; /* editorial minimal: index rows, masthead, texture */
+@import "@linkgan/design-system/expressive.css"; /* rsms-style index: Inter headings, catalog lists */
 ```
 
 ```html

@@ -1,31 +1,34 @@
 /**
- * Expressive minimal layer — house identity unchanged; editorial rhythm + motion + texture tokens.
+ * Expressive minimal — rsms.me–led: typography + grid, not decoration.
+ * House color/type tokens unchanged; Inter drives site chrome, Newsreader optional for prose.
  */
 
 :root {
-  --lds-text-display: clamp(2.75rem, 4.5vw + 1.25rem, 4.75rem);
-  --lds-text-display-sm: clamp(2rem, 2.5vw + 1rem, 3.25rem);
-  --lds-measure: 36ch;
+  /* Single-column site measure (rsms-style narrow column) */
+  --lds-layout-site: 40rem;
+  --lds-layout-site-wide: 48rem;
+
+  /* Inter display headings */
+  --lds-text-display: clamp(2.25rem, 3vw + 1rem, 3.25rem);
+  --lds-text-display-sm: clamp(1.5rem, 1.5vw + 1rem, 1.875rem);
+  --lds-measure: 38ch;
   --lds-measure-wide: 46ch;
-  --lds-measure-narrow: 28ch;
+  --lds-measure-narrow: 32ch;
 
-  --lds-leading-display: 1.05;
-  --lds-tracking-display: -0.035em;
-  --lds-tracking-meta: 0.08em;
+  --lds-leading-display: 1.12;
+  --lds-leading-site: 1.45;
+  --lds-tracking-display: -0.045em;
+  --lds-tracking-heading: -0.03em;
+  --lds-tracking-meta: 0.04em;
 
-  --lds-motion-hover: 140ms;
-  --lds-motion-underline: 220ms;
-  --lds-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Texture opacities — subtle on white */
-  --lds-texture-grain-opacity: 0.035;
-  --lds-texture-grid-opacity: 0.12;
+  --lds-motion-hover: 120ms;
   --lds-rule-hairline: 1px;
+
+  --lds-ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --lds-motion-hover: 0ms;
-    --lds-motion-underline: 0ms;
   }
 }
