@@ -57,30 +57,64 @@ function renderControls(direction, scheme, type) {
 
 function renderHome() {
   return `
-    <section class="lds-hero lds-container" aria-labelledby="hero-title">
-      <p class="lds-hero__eyebrow">Los Angeles · Analytics &amp; code</p>
-      <h1 class="lds-display lds-hero__title" id="hero-title">Notes from the workbench</h1>
-      <p class="lds-body lds-hero__lede">
-        A personal site built for long-form thinking—projects, chess, and the small systems that keep life legible.
-      </p>
-      <div class="lds-hero__actions">
-        <a class="lds-btn lds-btn--primary" href="#writing">Read latest</a>
-        <a class="lds-btn lds-btn--secondary" href="#projects">Projects</a>
-      </div>
-    </section>
-    <section class="lds-section lds-container" id="writing">
-      <h2 class="lds-h2">Recent writing</h2>
-      <p class="lds-body" style="margin-bottom: var(--lds-space-8); max-width: 48ch">
-        Essays and logs—no SEO filler, just things worth keeping.
-      </p>
-      <article class="lds-card">
-        <h3 class="lds-card__title">Why I still keep a lab notebook</h3>
-        <p class="lds-card__body">
-          Paper fails search; digital fails presence. The compromise is a dated index and one honest paragraph per day.
+    <header class="lds-masthead lds-reveal" aria-labelledby="hero-title">
+      <div class="lds-masthead__inner">
+        <p class="lds-meta" style="margin: 0 0 var(--lds-space-6)">Los Angeles · linkgan</p>
+        <h1 class="lds-display-xl" id="hero-title">
+          Notes from the <span class="lds-display-emphasis">workbench</span>
+        </h1>
+        <p class="lds-prose" style="margin: var(--lds-space-8) 0 var(--lds-space-6)">
+          Personal site energy: long-form thinking, chess, and the small systems that keep a life legible—without
+          the template glow.
         </p>
-        <p class="lds-caption" style="margin-top: var(--lds-space-4)">Oct 2026 · 6 min</p>
-      </article>
-    </section>
+        <ul class="lds-tags" aria-label="Topics">
+          <li><a class="lds-tag" href="#">writing</a></li>
+          <li><a class="lds-tag" href="#">chess</a></li>
+          <li><a class="lds-tag" href="#">systems</a></li>
+        </ul>
+        <div class="lds-hero__actions" style="margin-top: var(--lds-space-8)">
+          <a class="lds-btn lds-btn--primary" href="#index">Index</a>
+          <a class="lds-btn lds-btn--secondary" href="#now">Now</a>
+        </div>
+      </div>
+    </header>
+  <aside class="lds-aside lds-container" id="now">
+      <span class="lds-aside__label">Now</span>
+      Building in public, guiltlessly following curiosity—a line borrowed from personal-site restraint, not hustle copy.
+    </aside>
+    <div class="lds-container">
+      <div class="lds-section-rule" role="separator"><span>Writing</span></div>
+      <ul class="lds-index" id="index">
+        <li class="lds-index__item">
+          <a class="lds-index__link" href="#">
+            <span class="lds-meta">Essay</span>
+            <span class="lds-index__title">Why I still keep a lab notebook</span>
+            <span class="lds-index__meta">6 min</span>
+            <span class="lds-index__desc">Paper fails search; digital fails presence. One honest paragraph per day.</span>
+          </a>
+        </li>
+        <li class="lds-index__item">
+          <a class="lds-index__link" href="#">
+            <span class="lds-meta">Log</span>
+            <span class="lds-index__title">Chess study index, autumn</span>
+            <span class="lds-index__meta">2026</span>
+            <span class="lds-index__desc">Openings I’m revisiting—not a rating grind post.</span>
+          </a>
+        </li>
+        <li class="lds-index__item">
+          <a class="lds-index__link" href="#">
+            <span class="lds-meta">Note</span>
+            <span class="lds-index__title">Analytics engineering with care</span>
+            <span class="lds-index__meta">draft</span>
+            <span class="lds-index__desc">Pipelines that stay legible six months later.</span>
+          </a>
+        </li>
+      </ul>
+      <p class="lds-body" style="margin-top: var(--lds-space-8); max-width: var(--lds-measure-narrow)">
+        More in the <a class="lds-link-text" href="#">archive</a>
+        <span class="lds-footnote"><a href="#" aria-label="Footnote 1">1</a></span> when it earns a click—not before.
+      </p>
+    </div>
   `;
 }
 

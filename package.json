@@ -1,6 +1,6 @@
 {
   "name": "@linkgan/design-system",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Minimal shared design language — tokens, components, Tailwind preset",
   "license": "MIT",
   "repository": {
@@ -18,6 +18,7 @@
     "./tokens.css": "./tokens/index.css",
     "./type-pairings.css": "./tokens/type-pairings.css",
     "./components.css": "./components/components.css",
+    "./expressive.css": "./components/expressive.css",
     "./tailwind-preset": "./tailwind/preset.js",
     "./principles": "./docs/principles.md"
   },

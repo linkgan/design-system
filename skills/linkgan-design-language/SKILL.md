@@ -26,7 +26,10 @@ npm install github:linkgan/design-system
 ```css
 @import "@linkgan/design-system/tokens.css";
 @import "@linkgan/design-system/components.css";
+@import "@linkgan/design-system/expressive.css";
 ```
+
+Use **expressive** components for personal-site pages: `lds-masthead`, `lds-display-xl`, `lds-index`, `lds-tag`, `lds-aside`, `lds-link-text`. Optional `lds-page--texture lds-page--dotgrid` on `body`.
 
 Load fonts: Newsreader, Inter, JetBrains Mono.
 

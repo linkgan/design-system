@@ -1,0 +1,31 @@
+/**
+ * Expressive minimal layer — house identity unchanged; editorial rhythm + motion + texture tokens.
+ */
+
+:root {
+  --lds-text-display: clamp(2.75rem, 4.5vw + 1.25rem, 4.75rem);
+  --lds-text-display-sm: clamp(2rem, 2.5vw + 1rem, 3.25rem);
+  --lds-measure: 36ch;
+  --lds-measure-wide: 46ch;
+  --lds-measure-narrow: 28ch;
+
+  --lds-leading-display: 1.05;
+  --lds-tracking-display: -0.035em;
+  --lds-tracking-meta: 0.08em;
+
+  --lds-motion-hover: 140ms;
+  --lds-motion-underline: 220ms;
+  --lds-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Texture opacities — subtle on white */
+  --lds-texture-grain-opacity: 0.035;
+  --lds-texture-grid-opacity: 0.12;
+  --lds-rule-hairline: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --lds-motion-hover: 0ms;
+    --lds-motion-underline: 0ms;
+  }
+}
