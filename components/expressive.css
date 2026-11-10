@@ -1,0 +1,250 @@
+/* Expressive minimal — rsms.me–first: engineered lists, Inter hierarchy, plain links */
+
+.lds-site {
+  width: min(100% - 2 * var(--lds-layout-gutter), var(--lds-layout-site));
+  margin-inline: auto;
+  padding-bottom: var(--lds-space-16);
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Site header — canvas flush, hairline, brand stacked above scroll nav (home-website polish) */
+.lds-site .lds-header--site {
+  position: static;
+  top: auto;
+  z-index: auto;
+  width: 100%;
+  margin-bottom: var(--lds-space-6);
+  padding-block: var(--lds-space-3);
+  background: var(--lds-color-bg-canvas);
+  border-bottom: var(--lds-rule-hairline) solid var(--lds-color-border-default);
+  backdrop-filter: none;
+}
+
+.lds-site .lds-header--site .lds-header__inner {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--lds-space-2);
+  padding: 0;
+  max-width: none;
+  width: 100%;
+}
+
+.lds-site .lds-nav__brand {
+  font-family: var(--lds-font-family-sans);
+  font-weight: var(--lds-weight-semibold);
+  font-size: var(--lds-text-lg);
+  letter-spacing: var(--lds-tracking-brand);
+  line-height: 1.1;
+  color: var(--lds-color-text-primary);
+  text-decoration: none;
+}
+
+.lds-site .lds-header--site .lds-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--lds-space-4);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1px;
+}
+
+.lds-site .lds-header--site .lds-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.lds-site .lds-header--site .lds-link {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: var(--lds-text-sm);
+}
+
+.lds-site-index-line {
+  display: block;
+  margin: 0 0 var(--lds-space-4);
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+  letter-spacing: var(--lds-tracking-meta);
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lds-site-index-line::-webkit-scrollbar {
+  display: none;
+}
+
+.lds-site-lede {
+  margin: 0 0 var(--lds-space-6);
+  max-width: var(--lds-measure);
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-md);
+  font-weight: var(--lds-weight-regular);
+  line-height: var(--lds-leading-site);
+  color: var(--lds-color-text-secondary);
+}
+
+/* Inter display / heading stack */
+.lds-site-hero,
+.lds-catalog__heading,
+.lds-catalog__title {
+  font-family: var(--lds-font-family-sans);
+  font-optical-sizing: auto;
+  color: var(--lds-color-text-primary);
+}
+
+.lds-site-hero {
+  font-size: var(--lds-text-display);
+  font-weight: var(--lds-weight-semibold);
+  line-height: var(--lds-leading-display);
+  letter-spacing: var(--lds-tracking-display);
+  margin: 0 0 var(--lds-space-6);
+  padding-top: 0;
+}
+
+.lds-catalog {
+  margin: 0 0 var(--lds-space-8);
+}
+
+.lds-catalog__heading {
+  font-size: var(--lds-text-display-sm);
+  font-weight: var(--lds-weight-semibold);
+  letter-spacing: var(--lds-tracking-heading);
+  line-height: var(--lds-leading-snug);
+  margin: 0 0 var(--lds-space-4);
+}
+
+.lds-catalog__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lds-catalog__item {
+  margin: 0 0 var(--lds-space-5);
+}
+
+.lds-catalog__title {
+  font-size: var(--lds-text-lg);
+  font-weight: var(--lds-weight-semibold);
+  line-height: var(--lds-leading-snug);
+  letter-spacing: var(--lds-tracking-heading);
+  margin: 0 0 var(--lds-space-2);
+}
+
+.lds-catalog__link {
+  color: var(--lds-color-text-primary);
+  text-decoration: none;
+  transition: color var(--lds-motion-hover) var(--lds-ease-out);
+}
+
+.lds-catalog__link:hover {
+  color: var(--lds-color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lds-catalog__link:focus-visible {
+  outline: 2px solid var(--lds-color-focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.lds-catalog__desc {
+  margin: 0;
+  max-width: var(--lds-measure);
+  font-size: var(--lds-text-md);
+  font-weight: var(--lds-weight-regular);
+  line-height: var(--lds-leading-site);
+  color: var(--lds-color-text-secondary);
+}
+
+.lds-catalog__meta {
+  display: block;
+  margin-top: var(--lds-space-2);
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--lds-color-text-muted);
+}
+
+.lds-site-bio {
+  margin: var(--lds-space-16) 0 0;
+  max-width: var(--lds-measure-wide);
+  font-size: var(--lds-text-md);
+  line-height: var(--lds-leading-site);
+  color: var(--lds-color-text-secondary);
+}
+
+/* Plain inline links (rsms default) */
+.lds-link-plain {
+  color: var(--lds-color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--lds-color-border-strong) 55%, transparent);
+  transition:
+    color var(--lds-motion-hover) var(--lds-ease-out),
+    text-decoration-color var(--lds-motion-hover) var(--lds-ease-out);
+}
+
+.lds-link-plain:hover {
+  color: var(--lds-color-accent);
+  text-decoration-color: var(--lds-color-accent);
+}
+
+.lds-link-plain:focus-visible {
+  outline: 2px solid var(--lds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Optional Newsreader longform (house pairing available, not default chrome) */
+.lds-serif {
+  font-family: var(--lds-font-family-display);
+  font-size: var(--lds-text-lg);
+  line-height: var(--lds-leading-relaxed);
+  color: var(--lds-color-text-secondary);
+  max-width: var(--lds-measure);
+}
+
+.lds-serif__label {
+  display: block;
+  margin-bottom: var(--lds-space-3);
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  letter-spacing: var(--lds-tracking-meta);
+  text-transform: uppercase;
+  color: var(--lds-color-text-muted);
+}
+
+/* Legacy / optional — prefer .lds-catalog on personal sites */
+.lds-page--texture::before,
+.lds-page--dotgrid::after {
+  display: none;
+}
+
+.lds-index__link:hover {
+  background: transparent;
+}
+
+.lds-link-text {
+  color: var(--lds-color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--lds-color-border-default) 80%, transparent);
+  background: none;
+  transition: color var(--lds-motion-hover) var(--lds-ease-out);
+}
+
+.lds-link-text:hover {
+  color: var(--lds-color-accent);
+  background: none;
+}
+
+.lds-tag,
+.lds-aside {
+  /* Still in bundle for finance/tags elsewhere; personal index uses .lds-catalog */
+}

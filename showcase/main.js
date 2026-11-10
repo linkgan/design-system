@@ -1,7 +1,6 @@
 import {
   DIRECTIONS,
   TYPE_PAIRINGS,
-  DEFAULT_TYPE,
   FONT_STYLESHEET,
   applyTheme,
   readThemeFromQuery,
@@ -57,30 +56,96 @@ function renderControls(direction, scheme, type) {
 
 function renderHome() {
   return `
-    <section class="lds-hero lds-container" aria-labelledby="hero-title">
-      <p class="lds-hero__eyebrow">Los Angeles · Analytics &amp; code</p>
-      <h1 class="lds-display lds-hero__title" id="hero-title">Notes from the workbench</h1>
-      <p class="lds-body lds-hero__lede">
-        A personal site built for long-form thinking—projects, chess, and the small systems that keep life legible.
+    <div class="lds-site">
+      <header class="lds-header lds-header--site">
+        <div class="lds-header__inner">
+          <a class="lds-nav__brand" href="#">linkgan</a>
+          <nav aria-label="Site">
+            <ul class="lds-nav">
+              <li><a class="lds-link lds-link--active" href="#">Home</a></li>
+              <li><a class="lds-link" href="#">Projects</a></li>
+              <li><a class="lds-link" href="#">Writing</a></li>
+              <li><a class="lds-link" href="#">Lab notes</a></li>
+              <li><a class="lds-link" href="#">About</a></li>
+              <li><a class="lds-link" href="https://github.com/linkgan">GitHub</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <p class="lds-site-index-line" aria-hidden="true">01 · home / 2026-11 / cobalt · expressive-minimal</p>
+
+      <h1 class="lds-site-hero">Hello, I'm linkgan</h1>
+      <p class="lds-site-lede">
+        Personal index in the design system—canvas header, tight catalog rhythm, mono index line. Longform can still use Newsreader when needed.
       </p>
-      <div class="lds-hero__actions">
-        <a class="lds-btn lds-btn--primary" href="#writing">Read latest</a>
-        <a class="lds-btn lds-btn--secondary" href="#projects">Projects</a>
-      </div>
-    </section>
-    <section class="lds-section lds-container" id="writing">
-      <h2 class="lds-h2">Recent writing</h2>
-      <p class="lds-body" style="margin-bottom: var(--lds-space-8); max-width: 48ch">
-        Essays and logs—no SEO filler, just things worth keeping.
-      </p>
-      <article class="lds-card">
-        <h3 class="lds-card__title">Why I still keep a lab notebook</h3>
-        <p class="lds-card__body">
-          Paper fails search; digital fails presence. The compromise is a dated index and one honest paragraph per day.
-        </p>
-        <p class="lds-caption" style="margin-top: var(--lds-space-4)">Oct 2026 · 6 min</p>
+
+      <section class="lds-catalog" aria-labelledby="projects-heading">
+        <h2 class="lds-catalog__heading" id="projects-heading">Projects</h2>
+        <ul class="lds-catalog__list">
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">design-system</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Shared tokens and components for personal sites and a finance dashboard—cobalt on white, engineered not decorative.
+            </p>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">pgn2data</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Turn chess games into tabulated datasets. Small tool, sharp edges.
+            </p>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">finances-webapp</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Personal ledger UI—dense tables, quiet chrome, numbers in mono.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="lds-catalog" aria-labelledby="thoughts-heading">
+        <h2 class="lds-catalog__heading" id="thoughts-heading">Thoughts &amp; ideas</h2>
+        <ul class="lds-catalog__list">
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">Why keep a lab notebook</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Paper fails search; digital fails presence. One dated paragraph per day is the compromise.
+            </p>
+            <span class="lds-catalog__meta">Oct 2026</span>
+          </li>
+          <li class="lds-catalog__item">
+            <h3 class="lds-catalog__title">
+              <a class="lds-catalog__link" href="#">Analytics with legible pipelines</a>
+            </h3>
+            <p class="lds-catalog__desc">
+              Models you can re-read six months later without a diagram the size of a wall.
+            </p>
+            <span class="lds-catalog__meta">Sep 2026</span>
+          </li>
+        </ul>
+      </section>
+
+      <article class="lds-serif" style="margin-top: var(--lds-space-12)">
+        <span class="lds-serif__label">Longform · Newsreader</span>
+        Optional essay voice—serif body when a piece needs warmth; site chrome stays Inter-first like rsms.me.
       </article>
-    </section>
+
+      <p class="lds-site-bio">
+        Los Angeles · analytics engineer. Software is the medium I work in.
+        <a class="lds-link-plain" href="#">Home</a>
+        ·
+        <a class="lds-link-plain" href="https://github.com/linkgan">GitHub</a>
+      </p>
+    </div>
   `;
 }
 

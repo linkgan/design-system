@@ -18,12 +18,13 @@ Details: [docs/HOUSE-DEFAULT.md](./docs/HOUSE-DEFAULT.md).
 npm install github:linkgan/design-system
 ```
 
-**Fonts** (Google Fonts or self-host): Newsreader, Inter, JetBrains Mono.
+**Fonts:** load Inter, Newsreader, and JetBrains Mono before tokens — [docs/FONTS.md](./docs/FONTS.md) (HTML link or `@linkgan/design-system/fonts/house-fonts` URL export).
 
 ```css
 /* app layout or global.css */
 @import "@linkgan/design-system/tokens.css";
 @import "@linkgan/design-system/components.css";
+@import "@linkgan/design-system/expressive.css"; /* rsms-style index: Inter headings, catalog lists */
 ```
 
 ```html
