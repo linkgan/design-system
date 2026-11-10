@@ -10,6 +10,7 @@
   "files": [
     "tokens",
     "components",
+    "fonts",
     "tailwind",
     "docs",
     "skills/linkgan-design-language"
