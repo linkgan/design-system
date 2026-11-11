@@ -25,7 +25,10 @@ npm install github:linkgan/design-system
 @import "@linkgan/design-system/tokens.css";
 @import "@linkgan/design-system/components.css";
 @import "@linkgan/design-system/expressive.css"; /* rsms-style index: Inter headings, catalog lists */
+@import "@linkgan/design-system/chat.css"; /* optional — Miles chat / conversation UI */
 ```
+
+**Static CSS sync (home-website):** `npm run sync-static-css:list` and `npm run sync-static-css -- /path/to/vendor/lds` copy [`static-css.manifest`](./static-css.manifest) paths (includes `chat.css`).
 
 ```html
 <html lang="en">
@@ -98,3 +101,4 @@ npm run audit:contrast
 
 - [Design principles](./docs/principles.md)
 - [House default](./docs/HOUSE-DEFAULT.md)
+- [Chat components](./docs/CHAT.md)
