@@ -48,6 +48,7 @@ function renderControls(direction, scheme, type) {
         </label>
         <a class="lds-btn lds-btn--ghost" href="./type-specimen.html">Type</a>
         <a class="lds-btn lds-btn--ghost" href="./color-specimen.html">Colors</a>
+        <a class="lds-btn lds-btn--ghost" href="./miles-chat.html">Miles chat</a>
         <span class="lds-pill" id="active-pill">${direction} · ${type} · ${scheme}</span>
       </div>
     </div>

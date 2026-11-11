@@ -1,0 +1,282 @@
+/**
+ * Chat / conversation — rsms-inspired minimal, fits .lds-site column.
+ * Requires tokens.css + components.css; pair with expressive.css for site chrome.
+ */
+
+.lds-site.lds-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: var(--lds-space-12);
+}
+
+/* Sticky sub-header: date scrubber + filters (below site header in document flow) */
+.lds-chat__chrome {
+  position: sticky;
+  top: 0;
+  z-index: var(--lds-z-sticky);
+  margin: 0 0 var(--lds-space-4);
+  padding-block: var(--lds-space-3);
+  background: var(--lds-color-bg-canvas);
+  border-bottom: var(--lds-rule-hairline, 1px) solid var(--lds-color-border-default);
+}
+
+.lds-chat__chrome-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-space-3);
+}
+
+.lds-chat__title {
+  margin: 0;
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-lg);
+  font-weight: var(--lds-weight-semibold);
+  letter-spacing: var(--lds-tracking-heading, -0.03em);
+  line-height: var(--lds-leading-snug);
+  color: var(--lds-color-text-primary);
+}
+
+.lds-chat__meta {
+  margin: 0;
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+  letter-spacing: var(--lds-tracking-meta, 0.04em);
+}
+
+/* House chip / tag (not fully rounded) */
+.lds-chip {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 1.75rem;
+  padding: var(--lds-space-1) var(--lds-space-2);
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-xs);
+  font-weight: var(--lds-weight-medium);
+  line-height: 1.2;
+  border-radius: var(--lds-radius-sm);
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  background: var(--lds-color-bg-surface);
+  color: var(--lds-color-text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color var(--lds-motion-fast) var(--lds-ease-out),
+    border-color var(--lds-motion-fast) var(--lds-ease-out),
+    background-color var(--lds-motion-fast) var(--lds-ease-out);
+}
+
+.lds-chip:hover {
+  border-color: var(--lds-color-border-strong);
+  color: var(--lds-color-text-primary);
+}
+
+.lds-chip[aria-current="true"],
+.lds-chip--active {
+  border-color: var(--lds-color-accent);
+  background: var(--lds-color-accent-subtle);
+  color: var(--lds-color-accent);
+}
+
+.lds-chip--filter {
+  cursor: pointer;
+}
+
+/* Horizontal date timeline / scrubber */
+.lds-chat__scrubber {
+  display: flex;
+  align-items: center;
+  gap: var(--lds-space-2);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1px;
+}
+
+.lds-chat__scrubber::-webkit-scrollbar {
+  display: none;
+}
+
+.lds-chat__scrubber-label {
+  flex-shrink: 0;
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+}
+
+.lds-chat__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lds-space-2);
+}
+
+/* Message log */
+.lds-chat__log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lds-chat__day {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-space-2);
+}
+
+.lds-chat__day-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--lds-space-3);
+  margin: var(--lds-space-2) 0 var(--lds-space-3);
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+  letter-spacing: var(--lds-tracking-meta, 0.04em);
+}
+
+.lds-chat__day-marker::before,
+.lds-chat__day-marker::after {
+  content: "";
+  flex: 1;
+  height: var(--lds-rule-hairline, 1px);
+  background: var(--lds-color-border-default);
+}
+
+/* Coverage / timeline gap — semantic warning, not raw red */
+.lds-chat__gap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--lds-space-2);
+  margin: var(--lds-space-4) 0;
+  padding: var(--lds-space-3) var(--lds-space-3);
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-sm);
+  line-height: var(--lds-leading-snug);
+  color: var(--lds-color-warning);
+  background: var(--lds-color-bg-muted);
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  border-radius: var(--lds-radius-md);
+}
+
+.lds-chat__gap-label {
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  font-weight: var(--lds-weight-medium);
+  white-space: nowrap;
+}
+
+/* Messages */
+.lds-chat__message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--lds-space-1);
+  max-width: min(100%, 34rem);
+  margin: 0;
+}
+
+.lds-chat__message--outgoing {
+  align-self: flex-end;
+  align-items: flex-end;
+  max-width: min(100%, 30rem);
+}
+
+.lds-chat__message--grouped {
+  margin-top: calc(-1 * var(--lds-space-1));
+}
+
+.lds-chat__message--grouped .lds-chat__sender {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lds-chat__sender {
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  font-weight: var(--lds-weight-medium);
+  color: var(--lds-color-text-muted);
+  letter-spacing: var(--lds-tracking-meta, 0.04em);
+}
+
+.lds-chat__message--outgoing .lds-chat__sender {
+  color: var(--lds-color-text-secondary);
+}
+
+.lds-chat__bubble {
+  margin: 0;
+  padding: var(--lds-space-3) var(--lds-space-4);
+  font-family: var(--lds-font-family-sans);
+  font-size: var(--lds-text-sm);
+  line-height: var(--lds-leading-site, var(--lds-leading-normal));
+  border-radius: var(--lds-radius-md);
+  border: var(--lds-border-width) solid transparent;
+  word-break: break-word;
+}
+
+.lds-chat__message--incoming .lds-chat__bubble {
+  background: var(--lds-color-bg-surface);
+  border-color: var(--lds-color-border-default);
+  color: var(--lds-color-text-primary);
+}
+
+.lds-chat__message--outgoing .lds-chat__bubble {
+  background: var(--lds-color-accent);
+  color: var(--lds-color-on-accent);
+}
+
+.lds-chat__time {
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-text-xs);
+  color: var(--lds-color-text-muted);
+}
+
+.lds-chat__message--outgoing .lds-chat__time {
+  text-align: right;
+}
+
+/* Mobile — e.g. iPhone 390 */
+@media (max-width: 24.5rem) {
+  .lds-site.lds-chat {
+    width: min(100% - 2 * var(--lds-space-4), var(--lds-layout-site, 40rem));
+  }
+
+  .lds-chat__chrome {
+    margin-inline: calc(-1 * var(--lds-space-1));
+    padding-inline: var(--lds-space-1);
+  }
+
+  .lds-chat__message,
+  .lds-chat__message--outgoing {
+    max-width: 92%;
+  }
+
+  .lds-chat__bubble {
+    padding: var(--lds-space-2) var(--lds-space-3);
+  }
+
+  .lds-chat__filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 1px;
+  }
+
+  .lds-chat__filters::-webkit-scrollbar {
+    display: none;
+  }
+}

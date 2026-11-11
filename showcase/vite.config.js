@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         typeSpecimen: resolve(__dirname, "type-specimen.html"),
         colorSpecimen: resolve(__dirname, "color-specimen.html"),
+        milesChat: resolve(__dirname, "miles-chat.html"),
       },
     },
   },

@@ -1,0 +1,6 @@
+# CSS published for static-site sync (home-website lds-overlays / vendor copy).
+# One repo-relative path per line; blank lines and # comments ignored.
+tokens/index.css
+components/components.css
+components/expressive.css
+components/chat.css
