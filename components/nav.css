@@ -1,0 +1,373 @@
+/* Shared navigation: icon pills whose labels grow on hover or focus,
+   and a thumb-reach dock for narrow screens.
+   The grow timing is the interaction approved for the Gamilies header
+   and the Finances bar. Reduced motion shows the label instantly. */
+
+:root {
+  --lds-motion-grow: 460ms;
+  --lds-ease-grow: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --lds-motion-grow: 0ms;
+  }
+}
+
+.lds-site .lds-header--bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--lds-z-sticky);
+  width: 100%;
+  margin-bottom: 0;
+  padding-block: 0.75rem;
+  background: color-mix(in srgb, var(--lds-color-bg-canvas) 88%, transparent);
+  border-bottom: var(--lds-rule-hairline) solid var(--lds-color-border-default);
+  backdrop-filter: blur(10px);
+}
+
+.lds-site .lds-header--bar .lds-header__inner {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lds-space-4);
+  width: 100%;
+  padding: 0;
+}
+
+.lds-wordmark {
+  flex-shrink: 0;
+  font-family: var(--lds-font-family-sans);
+  font-weight: var(--lds-weight-semibold);
+  font-size: var(--lds-text-lg);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--lds-color-text-primary);
+  text-decoration: none;
+}
+
+.lds-wordmark:hover {
+  color: var(--lds-color-accent);
+}
+
+.lds-wordmark[aria-current="page"]:hover {
+  color: var(--lds-color-text-primary);
+}
+
+.lds-wordmark:focus-visible,
+.lds-pill:focus-visible,
+.lds-dock__item:focus-visible,
+.lds-menu__item:focus-visible {
+  outline: 2px solid var(--lds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.lds-nav--rooms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lds-nav__rule {
+  width: 1px;
+  height: 18px;
+  margin-inline: var(--lds-space-2);
+  background: var(--lds-color-border-default);
+  flex-shrink: 0;
+}
+
+.lds-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  max-width: 100%;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lds-color-text-primary);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: var(--lds-weight-medium);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--lds-motion-base) var(--lds-ease-out);
+}
+
+.lds-pill:hover,
+.lds-pill:focus-visible,
+.lds-pill[aria-current="page"],
+.lds-pill[aria-expanded="true"] {
+  background: var(--lds-color-bg-muted);
+}
+
+.lds-pill[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px var(--lds-color-border-default);
+  font-weight: var(--lds-weight-semibold);
+}
+
+.lds-pill__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--lds-color-text-secondary);
+}
+
+.lds-pill__icon svg,
+.lds-pill__icon img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.lds-pill:hover .lds-pill__icon,
+.lds-pill:focus-visible .lds-pill__icon,
+.lds-pill[aria-expanded="true"] .lds-pill__icon {
+  color: var(--lds-color-text-primary);
+}
+
+.lds-pill[aria-current="page"] .lds-pill__icon {
+  color: var(--lds-color-accent);
+}
+
+.lds-pill--dim .lds-pill__icon {
+  color: var(--lds-color-text-muted);
+}
+
+.lds-pill__label {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+  transition:
+    max-width var(--lds-motion-grow) var(--lds-ease-grow),
+    margin-left var(--lds-motion-grow) var(--lds-ease-grow),
+    opacity 160ms ease;
+}
+
+.lds-pill:hover .lds-pill__label,
+.lds-pill:focus-visible .lds-pill__label,
+.lds-pill[aria-current="page"] .lds-pill__label,
+.lds-pill[aria-expanded="true"] .lds-pill__label {
+  max-width: 12rem;
+  margin-left: 0.5rem;
+  opacity: 1;
+  transition:
+    max-width var(--lds-motion-grow) var(--lds-ease-grow),
+    margin-left var(--lds-motion-grow) var(--lds-ease-grow),
+    opacity 320ms ease 80ms;
+}
+
+.lds-pill__tag {
+  margin-left: 0.4rem;
+  font-family: var(--lds-font-family-mono);
+  font-size: 0.6rem;
+  font-weight: var(--lds-weight-medium);
+  letter-spacing: 0.06em;
+  color: var(--lds-color-text-muted);
+}
+
+.lds-pill__chevron {
+  display: inline-flex;
+  margin-left: 0.2rem;
+  color: var(--lds-color-text-muted);
+  transition: transform var(--lds-motion-base) var(--lds-ease-out);
+}
+
+.lds-pill[aria-expanded="true"] .lds-pill__chevron {
+  transform: rotate(180deg);
+}
+
+.lds-menu-anchor {
+  position: relative;
+}
+
+.lds-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(19rem, 80vw);
+  padding: 6px;
+  background: var(--lds-color-bg-canvas);
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  border-radius: 12px;
+  z-index: calc(var(--lds-z-sticky) + 1);
+}
+
+.lds-menu__item {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 8px;
+  align-items: start;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--lds-color-text-primary);
+  text-decoration: none;
+}
+
+.lds-menu__item:hover,
+.lds-menu__item:focus-visible {
+  background: var(--lds-color-bg-muted);
+}
+
+.lds-menu__title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: var(--lds-weight-semibold);
+}
+
+.lds-menu__blurb {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--lds-color-text-secondary);
+}
+
+.lds-menu__meta {
+  font-family: var(--lds-font-family-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: var(--lds-color-text-secondary);
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+
+.lds-menu__all {
+  display: block;
+  padding: 10px 10px 6px;
+  font-size: 0.8rem;
+  color: var(--lds-color-text-secondary);
+  text-decoration: none;
+}
+
+.lds-menu__all:hover {
+  color: var(--lds-color-accent);
+}
+
+.lds-dock {
+  display: none;
+}
+
+.lds-sheet {
+  position: fixed;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: calc(4.6rem + env(safe-area-inset-bottom));
+  z-index: calc(var(--lds-z-sticky) + 2);
+  padding: 8px;
+  background: var(--lds-color-bg-canvas);
+  border: var(--lds-border-width) solid var(--lds-color-border-default);
+  border-radius: 16px;
+}
+
+.lds-sheet__title {
+  padding: 6px 8px 8px;
+  font-family: var(--lds-font-family-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lds-color-text-secondary);
+}
+
+.lds-sheet__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--lds-color-text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: var(--lds-weight-medium);
+}
+
+.lds-sheet__row:hover,
+.lds-sheet__row:focus-visible {
+  background: var(--lds-color-bg-muted);
+}
+
+.lds-sheet__row--dim {
+  color: var(--lds-color-text-secondary);
+}
+
+@media (max-width: 760px) {
+  .lds-nav--rooms {
+    display: none;
+  }
+
+  .lds-dock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: calc(var(--lds-z-sticky) + 1);
+    padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--lds-color-bg-canvas) 94%, transparent);
+    border-top: var(--lds-rule-hairline) solid var(--lds-color-border-default);
+    backdrop-filter: blur(10px);
+  }
+
+  .lds-dock__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--lds-color-text-secondary);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: var(--lds-weight-semibold);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .lds-dock__item .lds-pill__icon,
+  .lds-dock__item .lds-pill__icon svg,
+  .lds-dock__item .lds-pill__icon img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lds-dock__item .lds-pill__label {
+    max-width: 0;
+    margin-left: 0;
+    opacity: 0;
+  }
+
+  .lds-dock__item[aria-current="page"],
+  .lds-dock__item[aria-expanded="true"] {
+    padding-inline: 14px;
+    background: var(--lds-color-accent);
+    color: var(--lds-color-on-accent);
+  }
+
+  .lds-dock__item[aria-current="page"] .lds-pill__icon,
+  .lds-dock__item[aria-expanded="true"] .lds-pill__icon {
+    color: var(--lds-color-on-accent);
+  }
+
+  .lds-dock__item[aria-current="page"] .lds-pill__label,
+  .lds-dock__item[aria-expanded="true"] .lds-pill__label {
+    max-width: 7.5rem;
+    margin-left: 0.4rem;
+    opacity: 1;
+  }
+}
