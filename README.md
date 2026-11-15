@@ -26,6 +26,8 @@ npm install github:linkgan/design-system
 @import "@linkgan/design-system/components.css";
 @import "@linkgan/design-system/expressive.css"; /* rsms-style index: Inter headings, catalog lists */
 @import "@linkgan/design-system/chat.css"; /* optional — Miles chat / conversation UI */
+@import "@linkgan/design-system/nav.css"; /* icon pills, family menu, mobile dock */
+@import "@linkgan/design-system/household.css"; /* optional — wide household pages */
 ```
 
 **Static CSS sync (home-website):** `npm run sync-static-css:list` and `npm run sync-static-css -- /path/to/vendor/lds` copy [`static-css.manifest`](./static-css.manifest) paths (includes `chat.css`).
@@ -37,6 +39,16 @@ npm install github:linkgan/design-system
 ```
 
 No `data-lds-*` required for the house look. Use `lds-btn`, `lds-card`, `lds-table`, etc. from `components.css`.
+
+### Icons (v0.4.0)
+
+`@linkgan/design-system/icons` exports `ICON_BODIES` and `ICON_SOLAR_NAMES`. Keys are shared by gamilies.com and finances (`finances`, `cooking`, `vinyl`, `annual`, …). Each body is a Solar linear SVG fragment (CC BY 4.0, [480 Design](https://github.com/480-Design/Solar-Icon-Set)) using `stroke="currentColor"`. Matching files live in `icons/svg/<name>.svg` for static pages.
+
+```jsx
+import { ICON_BODIES } from "@linkgan/design-system/icons";
+```
+
+`nav.css` is the shared pill and dock. A pill shows its icon at rest; the label grows on hover, keyboard focus, `aria-current="page"`, or `aria-expanded="true"`. Below 760px, `.lds-nav--rooms` hides and `.lds-dock` pins to the bottom.
 
 ### Tailwind (Next.js, finances-webapp, etc.)
 
